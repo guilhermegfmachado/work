@@ -47,9 +47,8 @@
 
         #navigation__left {
             display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 4px;
         }
 
         #navigation__trigger h1 {
@@ -60,7 +59,7 @@
         }
 
         #navigation__email {
-            font-size: 18px;
+            font-size: 14px;
         }
 
         #navigation__email a {
@@ -74,7 +73,7 @@
 
         #navigation__items {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
 
         #navigation__items a {
@@ -93,7 +92,7 @@
         #about {
             max-width: 800px;
             margin: 0 auto;
-            padding: 100px 30px 60px;
+            padding: 120px 30px 60px;
         }
 
         #about__text {
@@ -103,7 +102,7 @@
 
         #about__text p {
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.8;
             margin-bottom: 20px;
         }
 
@@ -166,14 +165,14 @@
 
         .work-item li {
             font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
         .work-item p {
             font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
         .work-item li strong {
@@ -209,7 +208,13 @@
 
             #navigation__left {
                 width: 100%;
+                flex-direction: row;
+                align-items: center;
                 justify-content: space-between;
+            }
+
+            #navigation__email {
+                display: none;
             }
 
             #navigation__items-wrap {
