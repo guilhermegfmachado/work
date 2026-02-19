@@ -6,7 +6,7 @@
     <title>Guilherme de G. F. Machado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,11 +16,12 @@
 
         body {
             font-family: 'Inter', Helvetica, Arial, sans-serif;
-            line-height: 1.5;
-            color: #000;
-            background: #fff;
+            line-height: 1.7;
+            color: #374151;
+            background: #F9F7F4;
             opacity: 0;
             transition: opacity 0.3s;
+            font-size: 17px;
         }
 
         body.loaded {
@@ -37,8 +38,8 @@
             left: 0;
             right: 0;
             z-index: 100;
-            background: #fff;
-            border-bottom: 1px solid #000;
+            background: #F9F7F4;
+            border-bottom: 1px solid #d1d5db;
         }
 
         #navigation__inner {
@@ -56,72 +57,83 @@
 
         #navigation__trigger h1 {
             font-size: 18px;
-            font-weight: normal;
+            font-weight: 700;
+            color: #1B2A4A;
             cursor: pointer;
             white-space: nowrap;
         }
 
         #navigation__email {
-            font-size: 14px;
+            font-size: 13px;
+            color: #6b7280;
         }
 
         #navigation__email a {
-            color: #000;
+            color: #6b7280;
             text-decoration: none;
         }
 
         #navigation__email a:hover {
-            text-decoration: underline;
+            color: #2563EB;
         }
 
         #navigation__items {
             display: flex;
-            gap: 15px;
+            gap: 24px;
             flex-wrap: wrap;
             justify-content: flex-end;
         }
 
-        #navigation__items a {
-            color: #000;
+        .button {
+            text-align: center;
+        }
+
+        .button .nav-label {
+            display: block;
+            color: #1B2A4A;
             text-decoration: none;
-            font-size: 16px;
-            transition: all 0.2s;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.2s;
             cursor: pointer;
         }
 
-        #navigation__items a:hover {
-            opacity: 0.5;
-            text-decoration: underline;
+        .button .nav-label:hover {
+            color: #2563EB;
+        }
+
+        .button .nav-desc {
+            display: block;
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 2px;
         }
 
         #about {
             max-width: 800px;
             margin: 0 auto;
-            padding: 120px 30px 60px;
+            padding: 130px 30px 60px;
         }
 
         #about__text {
             margin-bottom: 40px;
-            font-size: 18px;
         }
 
         #about__text p {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.8;
             margin-bottom: 20px;
             text-align: justify;
         }
 
         #about__text a {
-            color: #000;
-            text-decoration: underline;
-            cursor: pointer;
-            transition: all 0.2s;
+            color: #1B2A4A;
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
         #about__text a:hover {
-            opacity: 0.5;
-            background-color: #f0f0f0;
+            color: #2563EB;
         }
 
         #about__dates {
@@ -129,29 +141,27 @@
         }
 
         .section-header {
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1B2A4A;
             margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #000;
-            cursor: pointer;
-            display: inline-block;
-            transition: all 0.2s;
-        }
-
-        .section-header:hover {
-            opacity: 0.5;
-            background-color: #f0f0f0;
+            margin-top: 20px;
+            padding-bottom: 12px;
+            padding-left: 14px;
+            border-bottom: 2px solid #1B2A4A;
+            border-left: 4px solid #1B2A4A;
+            display: block;
+            cursor: default;
         }
 
         .section-content {
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         .work-item {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             padding-bottom: 30px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .work-item:last-child {
@@ -159,9 +169,10 @@
         }
 
         .work-item h3 {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 20px;
+            font-size: 17px;
+            font-weight: 600;
+            color: #1B2A4A;
+            margin-bottom: 16px;
         }
 
         .work-item ul {
@@ -170,33 +181,47 @@
         }
 
         .work-item li {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.8;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-align: justify;
         }
 
         .work-item p {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.8;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-align: justify;
         }
 
+        .work-item p strong {
+            font-weight: 700;
+            color: #1B2A4A;
+        }
+
         .work-item li strong {
-            font-weight: bold;
+            font-weight: 700;
         }
 
         .work-item a {
-            color: #000;
-            text-decoration: underline;
-            cursor: pointer;
+            color: #374151;
+            text-decoration: none;
+            border-bottom: 1px solid #d1d5db;
             transition: all 0.2s;
         }
 
         .work-item a:hover {
-            opacity: 0.5;
-            background-color: #f0f0f0;
+            color: #2563EB;
+            border-bottom-color: #2563EB;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 13px;
+            color: #9ca3af;
         }
 
         #mobile-menu-toggle {
@@ -204,6 +229,7 @@
             font-size: 24px;
             cursor: pointer;
             padding: 5px;
+            color: #1B2A4A;
         }
 
         @media (max-width: 768px) {
@@ -225,14 +251,18 @@
                 display: none;
             }
 
+            .button .nav-desc {
+                display: none;
+            }
+
             #navigation__items-wrap {
                 position: fixed;
                 top: 0;
                 right: -100%;
                 width: 70%;
                 height: 100vh;
-                background: #fff;
-                border-left: 1px solid #000;
+                background: #F9F7F4;
+                border-left: 1px solid #d1d5db;
                 transition: right 0.3s ease;
                 z-index: 200;
             }
@@ -248,15 +278,16 @@
             }
 
             #navigation__items .button {
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid #e5e7eb;
                 padding: 20px 0;
+                text-align: left;
             }
 
             #navigation__items .button:last-child {
                 border-bottom: none;
             }
 
-            #navigation__items a {
+            #navigation__items .nav-label {
                 font-size: 18px;
                 display: block;
             }
@@ -281,29 +312,34 @@
                         <h1>Guilherme de G. F. Machado</h1>
                     </div>
                     <div id="navigation__email">
-                        <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a> · <a href="https://guilhermegfmachado.github.io/work" target="_blank">guilhermegfmachado.github.io/work</a>
+                        Available for translation, coordination, and teaching work · <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a>
                     </div>
                     <div id="mobile-menu-toggle">☰</div>
                 </div>
                 <div id="navigation__items-wrap">
                     <div id="navigation__items">
                         <div class="button">
-                            <a href="#about">About</a>
+                            <a class="nav-label" href="#about">About</a>
                         </div>
                         <div class="button">
-                            <a href="#teacher">Teacher</a>
+                            <a class="nav-label" href="#teacher">Teacher</a>
+                            <span class="nav-desc">Schools · PLNM</span>
                         </div>
                         <div class="button">
-                            <a href="#translator">Translator</a>
+                            <a class="nav-label" href="#translator">Translator</a>
+                            <span class="nav-desc">Cultural · AV</span>
                         </div>
                         <div class="button">
-                            <a href="#musician">Musician</a>
+                            <a class="nav-label" href="#musician">Musician</a>
+                            <span class="nav-desc">3 projects · 11 releases</span>
                         </div>
                         <div class="button">
-                            <a href="#writer">Writer</a>
+                            <a class="nav-label" href="#writer">Writer</a>
+                            <span class="nav-desc">Público · QV · Aleph</span>
                         </div>
                         <div class="button">
-                            <a href="#building">Building & More</a>
+                            <a class="nav-label" href="#building">Building & More</a>
+                            <span class="nav-desc">ESC · Organic markets</span>
                         </div>
                     </div>
                 </div>
@@ -314,7 +350,7 @@
             <div id="about__details">
                 <h2 class="section-header">About</h2>
                 <div id="about__text">
-                    <p>Multilingual professional based in Torres Vedras with a background spanning translation, language teaching, project management, and arts journalism. Holds a Master's in Translation (FCSH, Universidade Nova de Lisboa) and a Cambridge C2 Certificate of Proficiency in English. Working language pair: Portuguese ↔ English. Translation practice covers audiovisual localisation, contemporary cultural and philosophical texts, academic research, institutional documentation, and community interpreting. Teaching experience spans private schools, accredited language academies, vocational secondary education, and one-to-one tuition, with pastoral and curriculum leadership responsibilities. Independent arts writer with festival coverage published in Público (Fugas) and on <a href="https://substack.com/@queresviver" target="_blank">QV</a>, and developer of <a href="https://guilhermegfmachado.github.io/claude-projects/index.html" target="_blank">Aleph (א)</a>, an open-access literary catalogue.</p>
+                    <p>Translator, teacher, and project coordinator based in Torres Vedras. I work across Portuguese and English — in cultural institutions, classrooms, production studios, and conservation sites. Master's in Translation (FCSH, Universidade Nova de Lisboa). C2 English (Cambridge). I've subtitled films, coordinated translation pipelines at TransPerfect, taught in secondary schools and language academies, covered contemporary performance for Público and <a href="https://substack.com/@queresviver" target="_blank">QV</a>, played guitar across Lisbon's music venues, built a geo-dome in Bulgaria, and sold organic produce at Príncipe Real on Saturday mornings. The website has the full picture.</p>
                 </div>
             </div>
 
@@ -439,12 +475,12 @@
                     <div class="work-item">
                         <h3>Selected Festival & Event Coverage</h3>
                         <ul>
-                            <li>• BoCA — Biennial of Contemporary Arts (Lisboa, October 2025) — Extended multi-part critical coverage across the full programme of this major international festival of contemporary performance, spanning theatre, dance, installation, and interdisciplinary work.</li>
-                            <li>• Tanz im August (Berlim, August 2025) — Festival coverage published in Público / Fugas under the title 'Tanz im August, Berlim ao Sol', reporting from one of Europe's preeminent contemporary dance festivals.</li>
-                            <li>• DocLisboa — International Documentary Film Festival (Lisboa, November 2025) — Critical essay weaving documentary form with questions of law, time, and love.</li>
-                            <li>• Olhares do Mediterrâneo (Lisboa, 12th edition, November 2025) — Critical essay on cinema as a collective form of seeing across the Mediterranean.</li>
-                            <li>• Caminhos do Cinema Português (December 2025) — Multi-part coverage including a critical account of the international premiere of Seta by Francisco Botelho.</li>
-                            <li>• Sovereign Art Prize (December 2025) — Critical essay on the exhibition, engaging themes of the sacred, the canonical, and the contemporary.</li>
+                            <li>• <strong>BoCA — Biennial of Contemporary Arts</strong> (Lisboa, October 2025) — Extended multi-part critical coverage across the full programme of this major international festival of contemporary performance, spanning theatre, dance, installation, and interdisciplinary work. <em>Available on request.</em></li>
+                            <li>• <strong>Tanz im August</strong> (Berlim, August 2025) — Festival coverage published in Público / Fugas under the title 'Tanz im August, Berlim ao Sol', reporting from one of Europe's preeminent contemporary dance festivals. <em>Available on request.</em></li>
+                            <li>• <strong>DocLisboa — International Documentary Film Festival</strong> (Lisboa, November 2025) — Critical essay weaving documentary form with questions of law, time, and love. <em>Available on request.</em></li>
+                            <li>• <strong>Olhares do Mediterrâneo</strong> (Lisboa, 12th edition, November 2025) — Critical essay on cinema as a collective form of seeing across the Mediterranean. <em>Available on request.</em></li>
+                            <li>• <strong>Caminhos do Cinema Português</strong> (December 2025) — Multi-part coverage including a critical account of the international premiere of Seta by Francisco Botelho. <em>Available on request.</em></li>
+                            <li>• <strong>Sovereign Art Prize</strong> (December 2025) — Critical essay on the exhibition, engaging themes of the sacred, the canonical, and the contemporary. <em>Available on request.</em></li>
                         </ul>
                     </div>
                     <div class="work-item">
@@ -452,9 +488,9 @@
                         <ul>
                             <li>• <strong><a href="https://guilhermegfmachado.github.io/claude-projects/index.html" target="_blank">Aleph (א)</a></strong> — An independently designed and developed universal literary catalogue, built to index and cross-reference texts by theme across authors, traditions, and centuries. A sustained engagement with literature, philosophy, and the architecture of knowledge — and an exercise in building the tools one actually wants to exist. 2025 – present</li>
                             <li>• <strong><a href="https://substack.com/@queresviver" target="_blank">Queres Viver (QV)</a></strong> — Portuguese and English event coverage, 2025 – ongoing</li>
-                            <li>• <strong>Circe</strong> — Literary magazine, available upon request, 2025</li>
-                            <li>• <strong>Que Rosa Dói</strong> — Zine, available upon request, 2024</li>
-                            <li>• <strong>Queres Viver?</strong> — Manifesto, available upon request, 2021</li>
+                            <li>• <strong>Circe</strong> — Literary magazine, <em>available upon request</em>, 2025</li>
+                            <li>• <strong>Que Rosa Dói</strong> — Zine, <em>available upon request</em>, 2024</li>
+                            <li>• <strong>Queres Viver?</strong> — Manifesto, <em>available upon request</em>, 2021</li>
                         </ul>
                     </div>
                 </div>
@@ -478,6 +514,10 @@
                 </div>
             </div>
         </main>
+
+        <footer>
+            © Guilherme de G. F. Machado · Torres Vedras · 2026
+        </footer>
     </div>
 
     <script>
@@ -490,7 +530,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.getElementById('mobile-menu-toggle');
             const menuWrap = document.getElementById('navigation__items-wrap');
-            const menuLinks = document.querySelectorAll('#navigation__items a');
+            const menuLinks = document.querySelectorAll('#navigation__items .nav-label');
 
             if (menuToggle) {
                 menuToggle.addEventListener('click', function() {
@@ -517,7 +557,7 @@
         });
 
         // Smooth scroll for navigation
-        document.querySelectorAll('#navigation__items a').forEach(anchor => {
+        document.querySelectorAll('#navigation__items .nav-label').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
