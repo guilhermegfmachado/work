@@ -58,7 +58,7 @@
         #navigation__trigger h1 {
             font-size: 18px;
             font-weight: 700;
-            color: #1B2A4A;
+            color: #1A3A2A;
             cursor: pointer;
             white-space: nowrap;
         }
@@ -90,7 +90,7 @@
 
         .button .nav-label {
             display: block;
-            color: #1B2A4A;
+            color: #1A3A2A;
             text-decoration: none;
             font-size: 15px;
             font-weight: 600;
@@ -123,11 +123,11 @@
             font-size: 17px;
             line-height: 1.8;
             margin-bottom: 20px;
-            text-align: justify;
+            text-align: left;
         }
 
         #about__text a {
-            color: #1B2A4A;
+            color: #1A3A2A;
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -143,13 +143,13 @@
         .section-header {
             font-size: 22px;
             font-weight: 700;
-            color: #1B2A4A;
+            color: #1A3A2A;
             margin-bottom: 30px;
             margin-top: 20px;
             padding-bottom: 12px;
             padding-left: 14px;
-            border-bottom: 2px solid #1B2A4A;
-            border-left: 4px solid #1B2A4A;
+            border-bottom: 2px solid #1A3A2A;
+            border-left: 4px solid #1A3A2A;
             display: block;
             cursor: default;
         }
@@ -171,7 +171,7 @@
         .work-item h3 {
             font-size: 17px;
             font-weight: 600;
-            color: #1B2A4A;
+            color: #1A3A2A;
             margin-bottom: 16px;
         }
 
@@ -184,19 +184,19 @@
             font-size: 17px;
             line-height: 1.8;
             margin-bottom: 16px;
-            text-align: justify;
+            text-align: left;
         }
 
         .work-item p {
             font-size: 17px;
             line-height: 1.8;
             margin-bottom: 16px;
-            text-align: justify;
+            text-align: left;
         }
 
         .work-item p strong {
             font-weight: 700;
-            color: #1B2A4A;
+            color: #1A3A2A;
         }
 
         .work-item li strong {
@@ -229,26 +229,42 @@
             font-size: 24px;
             cursor: pointer;
             padding: 5px;
-            color: #1B2A4A;
+            color: #1A3A2A;
         }
 
         @media (max-width: 768px) {
             #mobile-menu-toggle {
                 display: block;
             }
+
             #navigation__inner {
                 padding: 15px 20px;
             }
 
             #navigation__left {
                 width: 100%;
-                flex-direction: row;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-template-rows: auto auto;
                 align-items: center;
-                justify-content: space-between;
+            }
+
+            #navigation__trigger {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            #mobile-menu-toggle {
+                grid-column: 2;
+                grid-row: 1 / 3;
+                align-self: center;
             }
 
             #navigation__email {
-                display: none;
+                grid-column: 1;
+                grid-row: 2;
+                font-size: 11px;
+                margin-top: 2px;
             }
 
             .button .nav-desc {
@@ -288,18 +304,42 @@
             }
 
             #navigation__items .nav-label {
-                font-size: 18px;
+                font-size: 17px;
+                font-weight: 600;
                 display: block;
+                color: #1A3A2A;
             }
 
             #about {
-                padding: 120px 20px 40px;
+                padding: 100px 20px 40px;
             }
 
             #about__text {
                 margin-top: 20px;
             }
 
+            .section-header {
+                font-size: 20px;
+            }
+
+            .work-item h3 {
+                font-size: 16px;
+            }
+
+            .work-item li,
+            .work-item p,
+            #about__text p {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            .section-content {
+                margin-bottom: 60px;
+            }
+
+            footer {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
