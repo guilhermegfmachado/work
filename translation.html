@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Services · Guilherme de G. F. Machado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', Georgia, 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #374151;
+            background: #F9F7F4;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 17px;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        #page {
+            min-height: 100vh;
+        }
+
+        header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 30px 60px;
+        }
+
+        header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A3A2A;
+            margin-bottom: 6px;
+        }
+
+        header h1 a {
+            color: #1A3A2A;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        header h1 a:hover {
+            color: #2563EB;
+        }
+
+        header .tagline {
+            font-size: 17px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        header .email {
+            font-size: 15px;
+            color: #6b7280;
+        }
+
+        header .email a {
+            color: #6b7280;
+            text-decoration: none;
+            border-bottom: 1px solid #d1d5db;
+            transition: all 0.2s;
+        }
+
+        header .email a:hover {
+            color: #2563EB;
+            border-bottom-color: #2563EB;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 30px 60px;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A3A2A;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            padding-bottom: 12px;
+            padding-left: 14px;
+            border-bottom: 2px solid #1A3A2A;
+            border-left: 4px solid #1A3A2A;
+            display: block;
+            cursor: default;
+        }
+
+        .section-content {
+            margin-bottom: 80px;
+        }
+
+        .work-item {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .work-item:last-child {
+            border-bottom: none;
+        }
+
+        .work-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1A3A2A;
+            margin-bottom: 16px;
+        }
+
+        .work-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .work-item li {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .work-item p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .work-item p strong {
+            font-weight: 700;
+            color: #1A3A2A;
+        }
+
+        .work-item a {
+            color: #374151;
+            text-decoration: none;
+            border-bottom: 1px solid #d1d5db;
+            transition: all 0.2s;
+        }
+
+        .work-item a:hover {
+            color: #2563EB;
+            border-bottom-color: #2563EB;
+        }
+
+        .language-pairs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .language-pair {
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+
+        .language-pair .direction {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1A3A2A;
+            margin-bottom: 6px;
+        }
+
+        .language-pair .detail {
+            font-size: 15px;
+            color: #6b7280;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 40px;
+        }
+
+        .clients-grid li {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .specialisation-item {
+            margin-bottom: 30px;
+        }
+
+        .specialisation-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1A3A2A;
+            margin-bottom: 8px;
+        }
+
+        .specialisation-item p {
+            font-size: 17px;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .cta {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 30px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .cta p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .cta a {
+            color: #1A3A2A;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid #d1d5db;
+            transition: all 0.2s;
+        }
+
+        .cta a:hover {
+            color: #2563EB;
+            border-bottom-color: #2563EB;
+        }
+
+        .back-link {
+            margin-top: 30px;
+            font-size: 15px;
+        }
+
+        .back-link a {
+            color: #6b7280;
+            text-decoration: none;
+            border-bottom: 1px solid #d1d5db;
+            transition: all 0.2s;
+        }
+
+        .back-link a:hover {
+            color: #2563EB;
+            border-bottom-color: #2563EB;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 50px 20px 40px;
+            }
+
+            main {
+                padding: 0 20px 40px;
+            }
+
+            .section-header {
+                font-size: 20px;
+            }
+
+            .work-item h3,
+            .specialisation-item h3 {
+                font-size: 16px;
+            }
+
+            .work-item li,
+            .work-item p,
+            .specialisation-item p {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            .language-pairs {
+                grid-template-columns: 1fr;
+            }
+
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-content {
+                margin-bottom: 60px;
+            }
+
+            .cta {
+                padding: 40px 20px;
+            }
+
+            footer {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <header>
+            <h1><a href="index.html">Guilherme de G. F. Machado</a></h1>
+            <p class="tagline">Freelance Translator · EN ↔ PT</p>
+            <p class="email"><a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></p>
+        </header>
+
+        <main>
+            <!-- LANGUAGE PAIRS -->
+            <div class="section-content">
+                <h2 class="section-header">Language Pairs</h2>
+                <div class="language-pairs">
+                    <div class="language-pair">
+                        <div class="direction">English → Portuguese</div>
+                        <div class="detail">Source to native language</div>
+                    </div>
+                    <div class="language-pair">
+                        <div class="direction">Portuguese → English</div>
+                        <div class="detail">Native to source language</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPECIALISATIONS -->
+            <div class="section-content">
+                <h2 class="section-header">Specialisations</h2>
+                <div class="specialisation-item">
+                    <h3>Cultural & Arts</h3>
+                    <p>Programme texts, exhibition catalogues, arts criticism, cultural communications, grant documentation, and festival correspondence. Sustained work with institutions in contemporary visual art, performance, music, dance, and publishing.</p>
+                </div>
+                <div class="specialisation-item">
+                    <h3>Audiovisual Localisation</h3>
+                    <p>Subtitling of feature films, television series, documentaries, animation, and culinary programmes. Cultural adaptation of video game scripts and advertising content for dubbing, balancing register, timing, and idiomatic precision.</p>
+                </div>
+                <div class="specialisation-item">
+                    <h3>Corporate & Technical</h3>
+                    <p>Consulting documents, management reports, legal and business terminology. End-to-end project coordination in high-volume translation environments, including resource allocation and quality review.</p>
+                </div>
+                <div class="specialisation-item">
+                    <h3>Academic & Institutional</h3>
+                    <p>Research translation across specialist registers — medical, legal, and advocacy — including work commissioned via formal public procurement. Sensitivity to terminology in institutional and policy contexts.</p>
+                </div>
+            </div>
+
+            <!-- SELECTED CLIENTS -->
+            <div class="section-content">
+                <h2 class="section-header">Selected Clients</h2>
+                <div class="work-item">
+                    <ul class="clients-grid">
+                        <li>Fundação EDP / Revista Electra</li>
+                        <li>TransPerfect Translations</li>
+                        <li>Associação Zé dos Bois (ZDB)</li>
+                        <li>PédeXumbo</li>
+                        <li>Instituto Politécnico de Viseu</li>
+                        <li>Sintagma Traduções</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ABOUT -->
+            <div class="section-content">
+                <h2 class="section-header">About</h2>
+                <div class="work-item">
+                    <p>Master's in Translation from FCSH, Universidade Nova de Lisboa. C2 English (Cambridge). I've worked across cultural institutions, audiovisual studios, corporate environments, and academic publishing — subtitling films, coordinating translation pipelines at TransPerfect, translating philosophical essays for Revista Electra, and covering international correspondence for Portugal's traditional music organisations. Based in Torres Vedras.</p>
+                </div>
+            </div>
+        </main>
+
+        <div class="cta">
+            <p>For rates and availability — <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></p>
+            <p class="back-link"><a href="index.html">← Back to main site</a></p>
+        </div>
+
+        <footer>
+            © Guilherme de G. F. Machado · Torres Vedras · 2026
+        </footer>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
