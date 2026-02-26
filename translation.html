@@ -1,271 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Translation — Guilherme de G. F. Machado</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation — Guilherme de G. F. Machado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #1a1a1a;
-      background: #fff;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;
-    }
+        body {
+            font-family: 'Lora', Georgia, 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #374151;
+            background: #F9F7F4;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 17px;
+        }
 
-    header {
-      margin-bottom: 3rem;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 1.5rem;
-    }
+        body.loaded {
+            opacity: 1;
+        }
 
-    header h1 {
-      font-size: 1.2rem;
-      font-weight: normal;
-      letter-spacing: 0.01em;
-    }
+        #page {
+            min-height: 100vh;
+        }
 
-    header h1 a {
-      color: inherit;
-      text-decoration: none;
-    }
+        header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 30px 40px;
+            border-bottom: 1px solid #e5e7eb;
+        }
 
-    header h1 a:hover { text-decoration: underline; }
+        header h1 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A3A2A;
+            margin-bottom: 6px;
+        }
 
-    .tagline {
-      font-size: 0.95rem;
-      color: #555;
-      margin-top: 0.3rem;
-    }
+        header h1 a {
+            color: #1A3A2A;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
 
-    .contact-header {
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
+        header h1 a:hover {
+            color: #2563EB;
+        }
 
-    .contact-header a {
-      color: #1a1a1a;
-    }
+        header .tagline {
+            font-size: 15px;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
 
-    section {
-      margin-bottom: 2.8rem;
-    }
+        header .contact-line {
+            font-size: 13px;
+            color: #6b7280;
+        }
 
-    h2 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #888;
-      margin-bottom: 1.2rem;
-      font-weight: normal;
-    }
+        header .contact-line a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
 
-    .pairs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
-    }
+        header .contact-line a:hover {
+            color: #2563EB;
+        }
 
-    .pair-label {
-      font-size: 1rem;
-      font-weight: bold;
-      margin-bottom: 0.2rem;
-    }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
 
-    .pair-note {
-      font-size: 0.88rem;
-      color: #555;
-      line-height: 1.5;
-    }
+        .section-header {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A3A2A;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            padding-bottom: 12px;
+            padding-left: 14px;
+            border-bottom: 2px solid #1A3A2A;
+            border-left: 4px solid #1A3A2A;
+            display: block;
+            cursor: default;
+        }
 
-    .secondary-pairs {
-      font-size: 0.88rem;
-      color: #777;
-      margin-top: 0.5rem;
-    }
+        .section-content {
+            margin-bottom: 80px;
+        }
 
-    .spec {
-      margin-bottom: 1.8rem;
-    }
+        .work-item {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e5e7eb;
+        }
 
-    .spec h3 {
-      font-size: 0.95rem;
-      font-weight: bold;
-      margin-bottom: 0.4rem;
-    }
+        .work-item:last-child {
+            border-bottom: none;
+        }
 
-    .spec p {
-      font-size: 0.92rem;
-      color: #333;
-    }
+        .work-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1A3A2A;
+            margin-bottom: 16px;
+        }
 
-    .clients-list {
-      list-style: none;
-    }
+        .work-item ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    .clients-list li {
-      padding: 0.55rem 0;
-      border-bottom: 1px solid #eee;
-      font-size: 0.92rem;
-    }
+        .work-item li {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            text-align: left;
+        }
 
-    .clients-list li:last-child { border-bottom: none; }
+        .work-item p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            text-align: left;
+        }
 
-    .client-name {
-      font-weight: bold;
-    }
+        .work-item p strong {
+            font-weight: 700;
+            color: #1A3A2A;
+        }
 
-    .client-detail {
-      color: #555;
-      font-size: 0.88rem;
-      margin-top: 0.1rem;
-    }
+        .work-item a {
+            color: #374151;
+            text-decoration: none;
+            border-bottom: 1px solid #d1d5db;
+            transition: all 0.2s;
+        }
 
-    .footnote {
-      font-size: 0.82rem;
-      color: #999;
-      margin-top: 1rem;
-    }
+        .work-item a:hover {
+            color: #2563EB;
+            border-bottom-color: #2563EB;
+        }
 
-    .about-text {
-      font-size: 0.95rem;
-      color: #333;
-      margin-bottom: 1rem;
-    }
+        .language-pairs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
 
-    .cta {
-      font-size: 1rem;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #ddd;
-    }
+        .language-pair .direction {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1A3A2A;
+            margin-bottom: 6px;
+        }
 
-    .cta a {
-      color: #1a1a1a;
-      font-weight: bold;
-    }
+        .language-pair .detail {
+            font-size: 15px;
+            color: #6b7280;
+            line-height: 1.6;
+        }
 
-    footer {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #eee;
-      font-size: 0.8rem;
-      color: #aaa;
-      display: flex;
-      justify-content: space-between;
-    }
+        .secondary-pairs {
+            font-size: 15px;
+            color: #9ca3af;
+            margin-top: 10px;
+        }
 
-    footer a { color: #888; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+        .spec-item {
+            margin-bottom: 30px;
+        }
 
-    @media (max-width: 500px) {
-      .pairs { grid-template-columns: 1fr; }
-    }
-  </style>
+        .spec-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1A3A2A;
+            margin-bottom: 8px;
+        }
+
+        .spec-item p {
+            font-size: 17px;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .clients-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .clients-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 17px;
+        }
+
+        .clients-list li:last-child {
+            border-bottom: none;
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: #1A3A2A;
+        }
+
+        .client-detail {
+            color: #6b7280;
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+        .footnote {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-top: 20px;
+        }
+
+        .about-text {
+            font-size: 17px;
+            line-height: 1.8;
+            text-align: left;
+            margin-bottom: 16px;
+        }
+
+        .cta {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        .cta a {
+            color: #1A3A2A;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid #d1d5db;
+            transition: all 0.2s;
+        }
+
+        .cta a:hover {
+            color: #2563EB;
+            border-bottom-color: #2563EB;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            font-size: 13px;
+        }
+
+        .back-link a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-link a:hover {
+            color: #2563EB;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px 30px;
+            }
+
+            main {
+                padding: 40px 20px;
+            }
+
+            .section-header {
+                font-size: 20px;
+            }
+
+            .work-item h3,
+            .spec-item h3 {
+                font-size: 16px;
+            }
+
+            .work-item li,
+            .work-item p,
+            .spec-item p,
+            .about-text,
+            .clients-list li {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            .language-pairs {
+                grid-template-columns: 1fr;
+            }
+
+            .section-content {
+                margin-bottom: 60px;
+            }
+
+            .cta {
+                padding: 30px 20px;
+            }
+
+            footer {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div id="page">
+        <header>
+            <h1><a href="index.html">Guilherme de G. F. Machado</a></h1>
+            <div class="tagline">Freelance Translator · English &amp; Portuguese</div>
+            <div class="contact-line"><a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></div>
+        </header>
 
-  <header>
-    <h1><a href="index.html">Guilherme de G. F. Machado</a></h1>
-    <div class="tagline">Freelance Translator · English &amp; Portuguese</div>
-    <div class="contact-header"><a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></div>
-  </header>
+        <main>
+            <!-- LANGUAGE PAIRS -->
+            <div class="section-content">
+                <h2 class="section-header">Language Pairs</h2>
+                <div class="language-pairs">
+                    <div class="language-pair">
+                        <div class="direction">English → Portuguese</div>
+                        <div class="detail">Into my native language. Register, rhythm, and idiomatic naturalness are non-negotiable here.</div>
+                    </div>
+                    <div class="language-pair">
+                        <div class="direction">Portuguese → English</div>
+                        <div class="detail">Into English to C2 standard (Cambridge). Clean, precise, and appropriately voiced for the target audience.</div>
+                    </div>
+                </div>
+                <div class="secondary-pairs">Also: French → Portuguese · Spanish → Portuguese · Italian → Portuguese</div>
+            </div>
 
-  <section>
-    <h2>Language Pairs</h2>
-    <div class="pairs">
-      <div>
-        <div class="pair-label">English → Portuguese</div>
-        <div class="pair-note">Into my native language. Register, rhythm, and idiomatic naturalness are non-negotiable here.</div>
-      </div>
-      <div>
-        <div class="pair-label">Portuguese → English</div>
-        <div class="pair-note">Into English to C2 standard (Cambridge). Clean, precise, and appropriately voiced for the target audience.</div>
-      </div>
+            <!-- AREAS OF WORK -->
+            <div class="section-content">
+                <h2 class="section-header">Areas of Work</h2>
+                <div class="spec-item">
+                    <h3>Cultural &amp; Arts</h3>
+                    <p>Programme texts, exhibition materials, arts criticism, press releases, grant documentation, and international correspondence for cultural institutions and festivals. Work for <em>Fundação EDP / Revista Electra</em> — translating philosophical essays and critical texts for one of Portugal's most rigorous bilingual publications (issues nº 20 and 21, 2023) — and for <em>PédeXumbo</em>, the organisation behind Andanças, Portugal's largest traditional music and dance festival, across two seasons of communications and international documentation.</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Audiovisual Localisation</h3>
+                    <p>Subtitling of feature films, television series, documentaries, animation, and culinary programmes to broadcast-ready standards, with <em>Sintagma Traduções</em> (2021–22), one of Portugal's longest-established audiovisual localisation companies. Cultural adaptation of video game scripts and advertising content for dubbing — balancing register, timing, and idiomatic precision — with <em>BlueLab Produções</em> (2023).</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Corporate &amp; Technical</h3>
+                    <p>Business documents, management reports, consulting materials, and operational content. Background includes project coordination at <em>TransPerfect</em> — managing simultaneous translation projects, allocating resources across a distributed translator network, and reviewing final deliverables against client specifications — which informs how I work with corporate clients on volume and deadline-sensitive material.</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Academic &amp; Institutional</h3>
+                    <p>Research translation across specialist registers — medical, legal, and policy. Includes a commission from <em>Instituto Politécnico de Viseu</em> via formal public procurement (ECF-2024/144) for a research project addressing female genital mutilation, requiring simultaneous precision across medical, legal, and advocacy registers. Community and legal interpreting (Portuguese ↔ English), including a domestic dispute context.</p>
+                </div>
+            </div>
+
+            <!-- SELECTED CLIENTS -->
+            <div class="section-content">
+                <h2 class="section-header">Selected Clients</h2>
+                <ul class="clients-list">
+                    <li>
+                        <div class="client-name">Fundação EDP / Revista Electra</div>
+                        <div class="client-detail">Philosophical essays and arts criticism for issues nº 20 &amp; 21 of this bilingual quarterly · Lisboa, 2023</div>
+                    </li>
+                    <li>
+                        <div class="client-name">TransPerfect Translations</div>
+                        <div class="client-detail">Project coordination and translation across multiple simultaneous projects · Remote, 2022–23</div>
+                    </li>
+                    <li>
+                        <div class="client-name">PédeXumbo — Associação para a Promoção de Música e Dança</div>
+                        <div class="client-detail">Festival communications, international documentation, and website translation across two seasons · Évora, 2022–23</div>
+                    </li>
+                    <li>
+                        <div class="client-name">Sintagma Traduções</div>
+                        <div class="client-detail">Subtitling of films, series, documentaries, and animation to broadcast standard · Oeiras, 2021–22</div>
+                    </li>
+                    <li>
+                        <div class="client-name">BlueLab Produções de Audiovisuais</div>
+                        <div class="client-detail">Video game scripts and advertising content for dubbing · Lisboa, 2023</div>
+                    </li>
+                    <li>
+                        <div class="client-name">Instituto Politécnico de Viseu</div>
+                        <div class="client-detail">Research translation via public procurement (ECF-2024/144) · 2024</div>
+                    </li>
+                    <li>
+                        <div class="client-name">Fever Portugal</div>
+                        <div class="client-detail">Translation for a large-scale live event production · Lisboa, 2025</div>
+                    </li>
+                    <li>
+                        <div class="client-name">Neves de Almeida Alves Monteiro</div>
+                        <div class="client-detail">Corporate and technical translation for a management consulting firm · Lisboa, 2021–22</div>
+                    </li>
+                </ul>
+                <div class="footnote">Full client history available on request.</div>
+            </div>
+
+            <!-- BACKGROUND -->
+            <div class="section-content">
+                <h2 class="section-header">Background</h2>
+                <p class="about-text">Master's in Translation, FCSH — Universidade Nova de Lisboa. Cambridge C2 English. Five years of freelance practice across cultural institutions, audiovisual production, academic publishing, and corporate communications, alongside coordination experience at TransPerfect. Based in Lisbon, available for project work and ongoing retainers.</p>
+            </div>
+        </main>
+
+        <div class="cta">
+            <p>For rates and availability — <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></p>
+            <p class="back-link"><a href="index.html">← Back to main site</a></p>
+        </div>
+
+        <footer>
+            © Guilherme de G. F. Machado · Lisbon · 2026
+        </footer>
     </div>
-    <div class="secondary-pairs">Also: French → Portuguese · Spanish → Portuguese · Italian → Portuguese</div>
-  </section>
 
-  <section>
-    <h2>Areas of Work</h2>
-
-    <div class="spec">
-      <h3>Cultural &amp; Arts</h3>
-      <p>Programme texts, exhibition materials, arts criticism, press releases, grant documentation, and international correspondence for cultural institutions and festivals. Work for <em>Fundação EDP / Revista Electra</em> — translating philosophical essays and critical texts for one of Portugal's most rigorous bilingual publications (issues nº 20 and 21, 2023) — and for <em>PédeXumbo</em>, the organisation behind Andanças, Portugal's largest traditional music and dance festival, across two seasons of communications and international documentation.</p>
-    </div>
-
-    <div class="spec">
-      <h3>Audiovisual Localisation</h3>
-      <p>Subtitling of feature films, television series, documentaries, animation, and culinary programmes to broadcast-ready standards, with <em>Sintagma Traduções</em> (2021–22), one of Portugal's longest-established audiovisual localisation companies. Cultural adaptation of video game scripts and advertising content for dubbing — balancing register, timing, and idiomatic precision — with <em>BlueLab Produções</em> (2023).</p>
-    </div>
-
-    <div class="spec">
-      <h3>Corporate &amp; Technical</h3>
-      <p>Business documents, management reports, consulting materials, and operational content. Background includes project coordination at <em>TransPerfect</em> — managing simultaneous translation projects, allocating resources across a distributed translator network, and reviewing final deliverables against client specifications — which informs how I work with corporate clients on volume and deadline-sensitive material.</p>
-    </div>
-
-    <div class="spec">
-      <h3>Academic &amp; Institutional</h3>
-      <p>Research translation across specialist registers — medical, legal, and policy. Includes a commission from <em>Instituto Politécnico de Viseu</em> via formal public procurement (ECF-2024/144) for a research project addressing female genital mutilation, requiring simultaneous precision across medical, legal, and advocacy registers. Community and legal interpreting (Portuguese ↔ English), including a domestic dispute context.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Selected Clients</h2>
-    <ul class="clients-list">
-      <li>
-        <div class="client-name">Fundação EDP / Revista Electra</div>
-        <div class="client-detail">Philosophical essays and arts criticism for issues nº 20 &amp; 21 of this bilingual quarterly · Lisboa, 2023</div>
-      </li>
-      <li>
-        <div class="client-name">TransPerfect Translations</div>
-        <div class="client-detail">Project coordination and translation across multiple simultaneous projects · Remote, 2022–23</div>
-      </li>
-      <li>
-        <div class="client-name">PédeXumbo — Associação para a Promoção de Música e Dança</div>
-        <div class="client-detail">Festival communications, international documentation, and website translation across two seasons · Évora, 2022–23</div>
-      </li>
-      <li>
-        <div class="client-name">Sintagma Traduções</div>
-        <div class="client-detail">Subtitling of films, series, documentaries, and animation to broadcast standard · Oeiras, 2021–22</div>
-      </li>
-      <li>
-        <div class="client-name">BlueLab Produções de Audiovisuais</div>
-        <div class="client-detail">Video game scripts and advertising content for dubbing · Lisboa, 2023</div>
-      </li>
-      <li>
-        <div class="client-name">Instituto Politécnico de Viseu</div>
-        <div class="client-detail">Research translation via public procurement (ECF-2024/144) · 2024</div>
-      </li>
-      <li>
-        <div class="client-name">Fever Portugal</div>
-        <div class="client-detail">Translation for a large-scale live event production · Lisboa, 2025</div>
-      </li>
-      <li>
-        <div class="client-name">Neves de Almeida Alves Monteiro</div>
-        <div class="client-detail">Corporate and technical translation for a management consulting firm · Lisboa, 2021–22</div>
-      </li>
-    </ul>
-    <div class="footnote">Full client history available on request.</div>
-  </section>
-
-  <section>
-    <h2>Background</h2>
-    <p class="about-text">Master's in Translation, FCSH — Universidade Nova de Lisboa. Cambridge C2 English. Five years of freelance practice across cultural institutions, audiovisual production, academic publishing, and corporate communications, alongside coordination experience at TransPerfect. Based in Torres Vedras, available for project work and ongoing retainers.</p>
-
-    <div class="cta">For rates and availability — <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></div>
-  </section>
-
-  <footer>
-    <span>© Guilherme de G. F. Machado · Torres Vedras · 2026</span>
-    <a href="index.html">← Back to main site</a>
-  </footer>
-
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
 </body>
 </html>
