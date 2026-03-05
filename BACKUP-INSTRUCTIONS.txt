@@ -1,0 +1,141 @@
+============================================================
+  BACKUP & RECOVERY INSTRUCTIONS
+  guilhermegfmachado.github.io/work
+  Last updated: March 2026
+============================================================
+
+WHAT'S IN THIS BACKUP
+---------------------
+  index.html         — Main portfolio page
+  translation.html   — Standalone translation services page
+
+That's the entire site. No build tools, no dependencies,
+no databases. Just two HTML files.
+
+
+HOW TO VIEW LOCALLY
+-------------------
+Open index.html in any browser. That's it.
+Double-click the file, or drag it into a browser window.
+Everything works offline — the only external resource is
+Google Fonts (Lora), which will fall back to Georgia if
+you're offline.
+
+
+HOW TO PUT IT BACK ONLINE (GITHUB PAGES — FREE)
+------------------------------------------------
+
+1. Create a GitHub account (if you don't have one):
+   https://github.com/signup
+
+2. Create a new repository:
+   - Go to https://github.com/new
+   - Name it "work" (or whatever you want the URL path to be)
+   - Set it to Public
+   - Click "Create repository"
+
+3. Upload the files:
+   - On the new repo page, click "uploading an existing file"
+   - Drag both index.html and translation.html into the upload area
+   - Click "Commit changes"
+
+4. Enable GitHub Pages:
+   - Go to Settings > Pages (left sidebar)
+   - Under "Source", select "Deploy from a branch"
+   - Under "Branch", select "main" and "/ (root)"
+   - Click Save
+
+5. Wait 1-2 minutes. Your site will be live at:
+   https://YOUR-USERNAME.github.io/work/
+
+   (e.g. https://guilhermegfmachado.github.io/work/)
+
+
+HOW TO USE A CUSTOM DOMAIN (e.g. guilhermemachado.com)
+------------------------------------------------------
+
+1. Buy a domain from any registrar:
+   - Namecheap (namecheap.com) — cheapest, ~10 EUR/year
+   - Porkbun (porkbun.com) — also cheap, good interface
+   - Google Domains was discontinued; avoid GoDaddy (overpriced)
+   - A .com costs ~10-12 EUR/year. A .pt costs ~5-15 EUR/year.
+
+2. Point the domain to GitHub Pages by adding DNS records.
+   Go to your registrar's DNS settings and add ALL of these:
+
+   Type    Name    Value
+   ----    ----    -----
+   A       @       185.199.108.153
+   A       @       185.199.109.153
+   A       @       185.199.110.153
+   A       @       185.199.111.153
+   CNAME   www     guilhermegfmachado.github.io
+
+   (Replace "guilhermegfmachado" with your GitHub username
+   if you change it.)
+
+3. Tell GitHub about the domain:
+   - In your repo, go to Settings > Pages
+   - Under "Custom domain", type your domain (e.g. guilhermemachado.com)
+   - Click Save
+   - Check "Enforce HTTPS" (wait a few minutes for the certificate)
+
+4. Create a CNAME file in your repo:
+   - Create a new file called CNAME (no extension)
+   - Contents: just your domain on one line, e.g.:
+     guilhermemachado.com
+   - Commit it
+
+5. DNS propagation takes 5 minutes to 48 hours (usually under 1 hour).
+   After that, your site is live at your custom domain with HTTPS.
+
+
+HOW TO RESTORE FROM THIS BACKUP
+--------------------------------
+If you lose the GitHub repo or want to start fresh:
+
+1. Create a new repo on GitHub (step 2 above)
+2. Upload index.html and translation.html (step 3 above)
+3. Enable GitHub Pages (step 4 above)
+4. Re-add custom domain if you had one (steps above)
+
+That's it. The site is two files. No build step, no install,
+no server. Just HTML.
+
+
+HOW TO EDIT THE SITE
+--------------------
+Open index.html or translation.html in any text editor:
+  - VS Code (free, recommended): https://code.visualstudio.com
+  - Sublime Text: https://www.sublimetext.com
+  - Even Notepad/TextEdit works
+
+Make changes, save, refresh the browser to see them.
+When happy, upload the changed file(s) to GitHub:
+  - Go to the repo, click the file, click the pencil icon
+  - Paste the new contents, commit
+
+Or use git from the terminal:
+  git add index.html translation.html
+  git commit -m "Update site"
+  git push
+
+
+ALTERNATIVE HOSTING (IF NOT GITHUB PAGES)
+------------------------------------------
+These all work for static HTML with zero configuration:
+
+  Netlify (netlify.com)    — Free. Drag-and-drop deploy.
+  Vercel (vercel.com)      — Free. Same idea.
+  Cloudflare Pages         — Free. Fast global CDN.
+
+For any of these: sign up, drag your folder in, done.
+Custom domains work on all of them (same DNS setup).
+
+
+CONTACT FOR HELP
+----------------
+If this is being read by someone who isn't Guilherme and
+you need to get the site back up: the site is just two
+HTML files. Any web developer can have it running in
+5 minutes. There is nothing to install or configure.
