@@ -6,173 +6,227 @@
     <title>Guilherme de G. F. Machado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --navy: #1a2744;
+            --green: #3ab54a;
+            --mint: #e8f5eb;
+            --white: #ffffff;
+            --grey: #f4f4f4;
+            --text: #1a2744;
+            --muted: #6b7280;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Lora', Georgia, 'Times New Roman', serif;
+            font-family: 'Kumbh Sans', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
             line-height: 1.7;
-            color: #374151;
-            background: #F9F7F4;
+            color: var(--text);
+            background: var(--white);
             opacity: 0;
             transition: opacity 0.3s;
-            font-size: 17px;
         }
 
-        body.loaded {
-            opacity: 1;
+        body.loaded { opacity: 1; }
+
+        /* ── HEADER ── */
+        #site-header {
+            background: var(--navy);
+            padding: 3rem 2rem 2rem;
+            position: relative;
         }
 
-        #page {
-            min-height: 100vh;
+        #site-header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--white);
         }
 
-        #navigation {
+        #site-header h1 a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        #site-header .tagline {
+            color: var(--green);
+            font-size: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        #site-header .tagline a {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        #site-header .tagline a:hover { text-decoration: underline; }
+
+        /* ── HAMBURGER ── */
+        #hamburger {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: #F9F7F4;
-            border-bottom: 1px solid #d1d5db;
-        }
-
-        #navigation__inner {
+            top: 1.2rem;
+            right: 1.2rem;
+            z-index: 1000;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--green);
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 20px 30px;
+            justify-content: center;
+            transition: transform 0.2s;
         }
 
-        #navigation__left {
+        #hamburger:hover { transform: scale(1.08); }
+
+        /* ── OVERLAY NAV ── */
+        #overlay-nav {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: var(--navy);
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
         }
 
-        #navigation__trigger h1 {
-            font-size: 18px;
+        #overlay-nav.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        #overlay-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 2.4rem;
+            font-weight: 800;
+            transition: color 0.2s;
+        }
+
+        #overlay-nav a:hover { color: var(--green); }
+
+        /* ── INLINE TAB NAV ── */
+        #tab-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--white);
+            border-bottom: 1px solid #e5e7eb;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        #tab-nav::-webkit-scrollbar { display: none; }
+
+        #tab-nav-inner {
+            display: flex;
+            gap: 0;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .tab-link {
+            display: inline-block;
+            padding: 1rem 1.2rem;
+            font-family: 'Kumbh Sans', sans-serif;
+            font-size: 0.9rem;
             font-weight: 700;
-            color: #1A3A2A;
-            cursor: pointer;
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
             white-space: nowrap;
         }
 
-        #navigation__email {
-            font-size: 13px;
-            color: #6b7280;
+        .tab-link:hover { color: var(--navy); }
+
+        .tab-link.active {
+            color: var(--navy);
+            border-bottom-color: var(--green);
         }
 
-        #navigation__email a {
-            color: #6b7280;
-            text-decoration: none;
-        }
-
-        #navigation__email a:hover {
-            color: #2563EB;
-        }
-
-        #navigation__items {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .button {
-            text-align: center;
-        }
-
-        .button .nav-label {
-            display: block;
-            color: #1A3A2A;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            transition: color 0.2s;
-            cursor: pointer;
-        }
-
-        .button .nav-label:hover {
-            color: #2563EB;
-        }
-
-        .button .nav-desc {
-            display: block;
-            font-size: 11px;
-            color: #9ca3af;
-            margin-top: 2px;
-        }
-
-        #about {
-            max-width: 800px;
+        /* ── MAIN CONTENT ── */
+        main {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 130px 30px 60px;
+            padding: 0 2rem 4rem;
         }
 
-        #about__text {
-            margin-bottom: 40px;
+        /* ── SECTIONS ── */
+        .section-content {
+            padding-top: 5rem;
+            margin-bottom: 2rem;
         }
 
-        #about__text p {
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        #about__text a {
-            color: #1A3A2A;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        #about__text a:hover {
-            color: #2563EB;
-        }
-
-        #about__dates {
-            margin-top: 60px;
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--green);
+            margin-bottom: 0.5rem;
         }
 
         .section-header {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1A3A2A;
-            margin-bottom: 30px;
-            margin-top: 20px;
-            padding-bottom: 12px;
-            padding-left: 14px;
-            border-bottom: 2px solid #1A3A2A;
-            border-left: 4px solid #1A3A2A;
-            display: block;
-            cursor: default;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--navy);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            line-height: 1.1;
+            border: none;
+            padding: 0;
         }
 
-        .section-content {
-            margin-bottom: 80px;
+        .section-rule {
+            width: 60px;
+            height: 2px;
+            background: var(--green);
+            border: none;
+            margin-bottom: 2.5rem;
         }
 
+        /* ── WORK ITEMS ── */
         .work-item {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .work-item:last-child {
+            border-left: 3px solid var(--green);
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0;
             border-bottom: none;
         }
 
+        .work-item:last-child { border-bottom: none; }
+
         .work-item h3 {
-            font-size: 17px;
-            font-weight: 600;
-            color: #1A3A2A;
-            margin-bottom: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.8rem;
+        }
+
+        .work-item p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+
+        .work-item p strong {
+            font-weight: 700;
+            color: var(--navy);
         }
 
         .work-item ul {
@@ -181,432 +235,354 @@
         }
 
         .work-item li {
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: 16px;
-            text-align: left;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 0.4rem;
         }
 
-        .work-item p {
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: 16px;
-            text-align: left;
+        .work-item li strong { font-weight: 700; }
+
+        /* ── LINKS ── */
+        .work-item a {
+            color: var(--green);
+            text-decoration: none;
+            border-bottom: none;
+            transition: all 0.2s;
         }
 
-        .work-item p strong {
+        .work-item a:hover { text-decoration: underline; }
+
+        /* ── PROJECT CARDS ── */
+        .project-card {
+            background: var(--mint);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: none;
+        }
+
+        .project-card h3 {
+            font-size: 1.1rem;
             font-weight: 700;
-            color: #1A3A2A;
-        }
-
-        .work-item li strong {
-            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
         }
 
         .project-url {
-            margin-bottom: 12px;
+            margin-bottom: 0.8rem;
         }
 
         .project-url a {
-            color: #374151;
+            color: var(--green);
             text-decoration: none;
-            border-bottom: 1px solid #d1d5db;
-            transition: all 0.2s;
-            font-size: 15px;
+            font-size: 0.9rem;
+            border-bottom: none;
         }
 
-        .project-url a:hover {
-            color: #2563EB;
-            border-bottom-color: #2563EB;
+        .project-url a:hover { text-decoration: underline; }
+
+        .project-url a::before { content: "→ "; color: var(--green); }
+
+        .project-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 0;
         }
 
+        /* ── TRANSLATOR LINK ── */
+        .translator-services-link {
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .translator-services-link a {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        .translator-services-link a:hover { text-decoration: underline; }
+
+        /* ── WRITER EXTRAS ── */
         .writer-intro-note {
             font-style: italic;
-            color: rgba(55, 65, 81, 0.6);
-            margin-bottom: 20px;
+            color: var(--muted);
+            margin-bottom: 1rem;
         }
 
         .writer-available-for {
-            margin-top: 30px;
-            padding: 20px 16px;
-            border-left: 3px solid #1A3A2A;
-            font-size: 15px;
+            margin-top: 1.5rem;
+            padding: 1.2rem 1rem;
+            border-left: 3px solid var(--green);
+            font-size: 0.95rem;
             line-height: 1.8;
-            color: #374151;
+            color: var(--text);
+            background: var(--mint);
+            border-radius: 0 8px 8px 0;
         }
 
         .writer-available-for strong {
             font-weight: 700;
-            color: #1A3A2A;
+            color: var(--navy);
         }
 
-        .work-item a {
-            color: #374151;
-            text-decoration: none;
-            border-bottom: 1px solid #d1d5db;
-            transition: all 0.2s;
-        }
-
-        .work-item a:hover {
-            color: #2563EB;
-            border-bottom-color: #2563EB;
-        }
-
+        /* ── FOOTER ── */
         footer {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 30px;
-            border-top: 1px solid #e5e7eb;
-            font-size: 13px;
-            color: #9ca3af;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
         }
 
-        #mobile-menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 5px;
-            color: #1A3A2A;
-        }
-
+        /* ── MOBILE ── */
         @media (max-width: 768px) {
-            #mobile-menu-toggle {
-                display: block;
+            #site-header {
+                text-align: center;
+                padding: 2.5rem 1.5rem 1.5rem;
             }
 
-            #navigation__inner {
-                padding: 15px 20px;
-            }
+            #site-header h1 { font-size: 1.6rem; }
 
-            #navigation__left {
-                width: 100%;
-                display: grid;
-                grid-template-columns: 1fr auto;
-                grid-template-rows: auto auto;
-                align-items: center;
-            }
+            .section-header { font-size: 1.8rem; }
 
-            #navigation__trigger {
-                grid-column: 1;
-                grid-row: 1;
-            }
+            .work-item h3 { font-size: 1rem; }
 
-            #mobile-menu-toggle {
-                grid-column: 2;
-                grid-row: 1 / 3;
-                align-self: center;
-            }
+            .work-item li, .work-item p { font-size: 0.95rem; }
 
-            #navigation__email {
-                grid-column: 1;
-                grid-row: 2;
-                font-size: 11px;
-                margin-top: 2px;
-            }
+            main { padding: 0 1.2rem 3rem; }
 
-            .button .nav-desc {
-                display: none;
-            }
+            .section-content { padding-top: 4rem; }
 
-            #navigation__items-wrap {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: #F9F7F4;
-                border-left: 1px solid #d1d5db;
-                transition: right 0.3s ease;
-                z-index: 200;
-            }
+            #tab-nav-inner { padding: 0 1rem; }
 
-            #navigation__items-wrap.open {
-                right: 0;
-            }
+            .tab-link { padding: 0.8rem 1rem; font-size: 0.85rem; }
 
-            #navigation__items {
-                flex-direction: column;
-                gap: 0;
-                padding: 80px 30px 30px;
-            }
+            #overlay-nav a { font-size: 1.8rem; }
 
-            #navigation__items .button {
-                border-bottom: 1px solid #e5e7eb;
-                padding: 20px 0;
-                text-align: left;
-            }
-
-            #navigation__items .button:last-child {
-                border-bottom: none;
-            }
-
-            #navigation__items .nav-label {
-                font-size: 17px;
-                font-weight: 600;
-                display: block;
-                color: #1A3A2A;
-            }
-
-            #about {
-                padding: 100px 20px 40px;
-            }
-
-            #about__text {
-                margin-top: 20px;
-            }
-
-            .section-header {
-                font-size: 20px;
-            }
-
-            .work-item h3 {
-                font-size: 16px;
-            }
-
-            .work-item li,
-            .work-item p,
-            #about__text p {
-                font-size: 16px;
-                line-height: 1.7;
-            }
-
-            .writer-available-for {
-                font-size: 14px;
-            }
-
-            .section-content {
-                margin-bottom: 60px;
-            }
-
-            footer {
-                padding: 30px 20px;
-            }
+            .project-card { padding: 1.2rem; }
         }
     </style>
 </head>
 <body>
     <div id="page">
-        <div id="navigation">
-            <div id="navigation__inner">
-                <div id="navigation__left">
-                    <div id="navigation__trigger">
-                        <h1><a href="#" style="color: inherit; text-decoration: none;">Guilherme de G. F. Machado</a></h1>
-                    </div>
-                    <div id="navigation__email">
-                        Available for translation, coordination, and teaching work · <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a>
-                    </div>
-                    <div id="mobile-menu-toggle">☰</div>
-                </div>
-                <div id="navigation__items-wrap">
-                    <div id="navigation__items">
-                        <div class="button">
-                            <a class="nav-label" href="#teacher">Teacher</a>
-                            <span class="nav-desc">Schools · PLNM</span>
-                        </div>
-                        <div class="button">
-                            <a class="nav-label" href="#projects">Projects</a>
-                            <span class="nav-desc">Tools · Catalogues</span>
-                        </div>
-                        <div class="button">
-                            <a class="nav-label" href="#translator">Translator</a>
-                            <span class="nav-desc">Cultural · AV · <a href="translation.html" style="color: #9ca3af; text-decoration: none; border-bottom: 1px solid #d1d5db;">Services</a></span>
-                        </div>
-                        <div class="button">
-                            <a class="nav-label" href="#musician">Musician</a>
-                            <span class="nav-desc">3 projects · 11 releases</span>
-                        </div>
-                        <div class="button">
-                            <a class="nav-label" href="#writer">Writer</a>
-                            <span class="nav-desc">Events · Bilingual · For hire</span>
-                        </div>
-                        <div class="button">
-                            <a class="nav-label" href="#building">Building</a>
-                            <span class="nav-desc">ESC · Organic markets</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+        <button id="hamburger" aria-label="Menu">☰</button>
+
+        <div id="overlay-nav">
+            <a href="#teacher" class="overlay-link">Teacher</a>
+            <a href="#projects" class="overlay-link">Projects</a>
+            <a href="#translator" class="overlay-link">Translator</a>
+            <a href="#musician" class="overlay-link">Musician</a>
+            <a href="#writer" class="overlay-link">Writer</a>
+            <a href="#building" class="overlay-link">Building</a>
         </div>
 
-        <main id="about">
-            <div id="about__dates">
-                <!-- TEACHER SECTION -->
-                <div class="section-content" id="teacher">
-                    <h2 class="section-header">Teacher</h2>
-                    <div class="work-item">
-                        <h3>English & PLNM Teacher · Director de Turma · Colégio Miramar · December 2025 – present</h3>
-                        <ul>
-                            <li>• Teaching English to eight classes across 7th and 11th grade — three and five classes respectively — with 20 to 30 students per class, spanning a broad range of ages, abilities, and learning profiles.</li>
-                            <li>• Curriculum lead for the 11th grade cohort: sole responsibility for the design, sequencing, and delivery of the full English syllabus for five exam-year classes, ensuring coherence across the year group.</li>
-                            <li>• Teaching Portuguese as a Non-Native Language (PLNM — Português Língua Não Materna) alongside English, working across different proficiency levels and adapting materials to the specific linguistic and cultural backgrounds of individual learners.</li>
-                            <li>• Director de Turma (Form Tutor): primary institutional point of contact between the school and families; responsible for the holistic oversight of a class group's academic progress, attendance, and welfare; coordinating across subject teachers, year leadership, and specialist support staff; and managing the sustained pastoral and administrative demands that arise at the intersection of the classroom and the home.</li>
-                        </ul>
-                    </div>
-                    <div class="work-item">
-                        <h3>Teacher & Administrative Assistant · Helen Doron Torres Vedras · September 2024 – December 2025</h3>
-                        <ul>
-                            <li>• Delivering English instruction to children, pre-adolescents, and teenagers using the Helen Doron proprietary methodology, with particular attention to immersive, play-based learning in younger groups, and one-to-one private tuition for adult learners.</li>
-                            <li>• Administrative and compliance responsibilities: management of CRM platforms (HubSpot, Salesforce); preparation and maintenance of Dossiers Técnico-Pedagógicos in full compliance with DGERT certification standards; and oversight of health, safety, and facilities documentation including insurance files, hygiene and safety records, and fire-safety equipment compliance.</li>
-                            <li>• Completed the Helen Doron Teacher Training Course (TTC), a specialised certification focused on fun, creative, and immersive approaches to language learning for young learners.</li>
-                        </ul>
-                    </div>
-                    <div class="work-item">
-                        <h3>English Teacher · Escola Agrícola Fernando Barros Leal · January 2025 – September 2025</h3>
-                        <ul>
-                            <li>• Taught English to over 100 adolescents and young adults enrolled in vocational (cursos profissionais) and CEF programmes, navigating the distinct pedagogical demands of qualification-oriented secondary education.</li>
-                            <li>• Worked extensively with learners presenting significant learning difficulties and/or complex behavioural needs, developing differentiated approaches and maintaining productive classroom environments under sustained pressure.</li>
-                        </ul>
+        <header id="site-header">
+            <h1><a href="#">Guilherme de G. F. Machado</a></h1>
+            <div class="tagline">Available for translation, coordination, and teaching work · <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></div>
+        </header>
+
+        <nav id="tab-nav">
+            <div id="tab-nav-inner">
+                <a class="tab-link" href="#teacher">Teacher</a>
+                <a class="tab-link" href="#projects">Projects</a>
+                <a class="tab-link" href="#translator">Translator</a>
+                <a class="tab-link" href="#musician">Musician</a>
+                <a class="tab-link" href="#writer">Writer</a>
+                <a class="tab-link" href="#building">Building</a>
+            </div>
+        </nav>
+
+        <main>
+            <!-- TEACHER SECTION -->
+            <div class="section-content" id="teacher">
+                <div class="section-label">Teaching</div>
+                <h2 class="section-header">Teacher</h2>
+                <hr class="section-rule">
+                <div class="work-item">
+                    <h3>English & PLNM Teacher · Director de Turma · Colégio Miramar · December 2025 – present</h3>
+                    <ul>
+                        <li>→ Teaching English to eight classes across 7th and 11th grade — three and five classes respectively — with 20 to 30 students per class, spanning a broad range of ages, abilities, and learning profiles.</li>
+                        <li>→ Curriculum lead for the 11th grade cohort: sole responsibility for the design, sequencing, and delivery of the full English syllabus for five exam-year classes, ensuring coherence across the year group.</li>
+                        <li>→ Teaching Portuguese as a Non-Native Language (PLNM — Português Língua Não Materna) alongside English, working across different proficiency levels and adapting materials to the specific linguistic and cultural backgrounds of individual learners.</li>
+                        <li>→ Director de Turma (Form Tutor): primary institutional point of contact between the school and families; responsible for the holistic oversight of a class group's academic progress, attendance, and welfare; coordinating across subject teachers, year leadership, and specialist support staff; and managing the sustained pastoral and administrative demands that arise at the intersection of the classroom and the home.</li>
+                    </ul>
+                </div>
+                <div class="work-item">
+                    <h3>Teacher & Administrative Assistant · Helen Doron Torres Vedras · September 2024 – December 2025</h3>
+                    <ul>
+                        <li>→ Delivering English instruction to children, pre-adolescents, and teenagers using the Helen Doron proprietary methodology, with particular attention to immersive, play-based learning in younger groups, and one-to-one private tuition for adult learners.</li>
+                        <li>→ Administrative and compliance responsibilities: management of CRM platforms (HubSpot, Salesforce); preparation and maintenance of Dossiers Técnico-Pedagógicos in full compliance with DGERT certification standards; and oversight of health, safety, and facilities documentation including insurance files, hygiene and safety records, and fire-safety equipment compliance.</li>
+                        <li>→ Completed the Helen Doron Teacher Training Course (TTC), a specialised certification focused on fun, creative, and immersive approaches to language learning for young learners.</li>
+                    </ul>
+                </div>
+                <div class="work-item">
+                    <h3>English Teacher · Escola Agrícola Fernando Barros Leal · January 2025 – September 2025</h3>
+                    <ul>
+                        <li>→ Taught English to over 100 adolescents and young adults enrolled in vocational (cursos profissionais) and CEF programmes, navigating the distinct pedagogical demands of qualification-oriented secondary education.</li>
+                        <li>→ Worked extensively with learners presenting significant learning difficulties and/or complex behavioural needs, developing differentiated approaches and maintaining productive classroom environments under sustained pressure.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PROJECTS SECTION -->
+            <div class="section-content" id="projects">
+                <div class="section-label">Building</div>
+                <h2 class="section-header">Projects</h2>
+                <hr class="section-rule">
+                <div class="project-card">
+                    <h3>活字 (Huozi) — Multilingual News Aggregator · 2026 – present</h3>
+                    <p class="project-url"><a href="https://guilhermegfmachado.github.io/huozi" target="_blank">guilhermegfmachado.github.io/huozi</a></p>
+                    <p>An independently built RSS news aggregator pulling from global press sources across multiple languages and regions. Designed around the idea that reading the news in one language means reading one version of the world.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Aleph (א) — Open-Access Literary Catalogue · 2025 – present</h3>
+                    <p class="project-url"><a href="https://guilhermegfmachado.github.io/aleph/index.html" target="_blank">guilhermegfmachado.github.io/aleph</a></p>
+                    <p>A universal literary catalogue built to index and cross-reference texts by theme across authors, traditions, and centuries. An exercise in building the tools one actually wants to exist.</p>
+                </div>
+            </div>
+
+            <!-- TRANSLATOR SECTION -->
+            <div class="section-content" id="translator">
+                <div class="section-label">Translation</div>
+                <h2 class="section-header">Translator</h2>
+                <hr class="section-rule">
+                <p class="translator-services-link">See also: <a href="translation.html">Translation services, rates & availability</a></p>
+                <div class="work-item">
+                    <h3>Freelance Translator & Interpreter · Self-employed · 2020 – present</h3>
+                    <p><strong>Cultural & Contemporary Arts</strong></p>
+                    <ul>
+                        <li>→ OUT.RA — Associação Cultural (2025) — Translation of promotional and communications materials for OUT.RA Música's programming, supporting the organisation's engagement with Portuguese and international audiences.</li>
+                        <li>→ Fever (Lisboa, 2025) — Translation of materials for a large-scale live event production.</li>
+                        <li>→ Associação Zé dos Bois / ZDB (Lisboa, 2024) — Translation of programme and performance texts for ZDB, one of Lisbon's foremost centres for contemporary visual art, experimental music, and live performance, with a three-decade history of international residencies and commissions.</li>
+                        <li>→ Fundação EDP / Revista Electra (Lisboa, 2023) — Translation of philosophical essays and arts criticism for issues nº 20 and 21 of this prestigious bilingual (PT/EN) quarterly, one of Portugal's most ambitious cultural publishing projects, covering contemporary thought, literature, and the visual arts.</li>
+                        <li>→ PédeXumbo — Assoc. para a Promoção de Música e Dança (Évora, 2022–2023) — Sustained collaboration across festival communications, international partnership correspondence, grant documentation, and website translation for this organisation at the centre of Portugal's traditional music and dance culture, including the Andanças festival, the country's largest folk gathering.</li>
+                    </ul>
+                    <p><strong>Audiovisual Localisation</strong></p>
+                    <ul>
+                        <li>→ BlueLab Produções de Audiovisuais Lda (Lisboa, 2023) — Translation and cultural adaptation of video game scripts and advertising content for dubbing, balancing register, timing, and idiomatic precision for this specialist localisation and post-production studio.</li>
+                        <li>→ Sintagma Traduções Unipessoal Lda (Oeiras, 2021–2022) — Subtitling of feature films, television series, documentaries, animation, and culinary programmes for one of Portugal's longest-established audiovisual localisation companies, working to broadcast-ready standards across multiple content genres.</li>
+                    </ul>
+                    <p><strong>Academic & Institutional</strong></p>
+                    <ul>
+                        <li>→ Instituto Politécnico de Viseu (2024) — Research translation for a project addressing female genital mutilation, requiring sensitivity to specialist medical, legal, and advocacy registers; commissioned via formal public procurement (ECF-2024/144, Processo PA20240000313).</li>
+                        <li>→ Neves de Almeida Alves Monteiro Lda (Lisboa, 2021–2022) — Corporate and technical translation of consulting documents, handling precise terminology across management, legal, and business domains.</li>
+                    </ul>
+                    <p><strong>Interpreting</strong></p>
+                    <ul>
+                        <li>→ Ad hoc community and legal interpreting (Portuguese ↔ English), including assignment in a domestic dispute context requiring sustained accuracy, impartiality, and composure under emotionally charged conditions.</li>
+                    </ul>
+                </div>
+                <div class="work-item">
+                    <h3>Project Coordinator · TransPerfect Translations · May 2022 – January 2023 · Remote</h3>
+                    <ul>
+                        <li>→ Daily end-to-end coordination of multiple simultaneous translation projects within one of the world's largest language services companies, managing competing deadlines and priorities across a high-volume production environment.</li>
+                        <li>→ Responsibilities spanned full project lifecycle: document intake and preparation, resource allocation, quality review of final deliverables, and all written communication in English with sales teams, senior project managers, and a distributed network of freelance translators and specialists.</li>
+                    </ul>
+                </div>
+                <div class="work-item">
+                    <h3>Translation Intern · Sintagma Traduções Unipessoal Lda · 2019 – 2020 · Oeiras</h3>
+                    <ul>
+                        <li>→ Curricular internship providing structured professional exposure to audiovisual subtitling workflows across a range of content genres, establishing the foundation of a sustained practice in screen translation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MUSICIAN SECTION -->
+            <div class="section-content" id="musician">
+                <div class="section-label">Music</div>
+                <h2 class="section-header">Musician</h2>
+                <hr class="section-rule">
+                <div class="work-item">
+                    <h3>Projects</h3>
+                    <p>Played guitar in the recordings below, ranging from experimental folk (Raposa Branca, Roncos) to black metal (Fórnea) and noise-rock (Finje). Click below to listen.</p>
+                    <ul>
+                        <li>→ <a href="https://www.youtube.com/watch?v=zz2jqBCUJZE" target="_blank">Fórnea - Santuário de Endovélico (2024)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=ZiKX2p4IUz0" target="_blank">Fórnea - Obscura Primal (2024)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=B1BTrPG6ke8" target="_blank">Roncos - Viola para Fins de Ascensão (2024)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=LLEQCChC72Y" target="_blank">Finje - S/T (2024)</a></li>
+                        <li>→ <a href="https://machado.bandcamp.com/album/scritti-politici-dei-miei-ventanni" target="_blank">Raposa Branca - Scritti Politici Dei Miei Vent'Anni (2024)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=4U9AVAl1rAs" target="_blank">Finje - II (2023)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=iaeJURk7MB4" target="_blank">Roncos (2023 - ao vivo no KOT)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=dnu9JjLT4Fo" target="_blank">Raposa Branca - A Voz Vem Depois (2023)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=Ey_-yCTORUg" target="_blank">Roncos - Se Alguém Souber, Eram Os Vizinhos (2023)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=i9ZEhSxm-PE" target="_blank">Finje - I (2023)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=zO61Wcba2Go" target="_blank">Raposa Branca - Improv Pra Árvore (2022)</a></li>
+                    </ul>
+                </div>
+                <div class="work-item">
+                    <h3>Gigs</h3>
+                    <ul>
+                        <li>→ Slumlord (Quartet, electric guitar) @ Musicbox, Lisboa</li>
+                        <li>→ Raposa Branca (Solo, electric guitar, 12-string acoustic guitar and voice) @ Desterro, Lisboa</li>
+                        <li>→ Roncos (Duo, acoustic guitar) @ Armazém 5, Porto</li>
+                        <li>→ Roncos (Solo, 12-string acoustic guitar, prepared classical guitar and Bulgarian harp) @ Mindelo Fest, Mindelo</li>
+                        <li>→ Roncos (Solo, prepared electro-acoustic guitar) @ KOT, Coina</li>
+                        <li>→ Lodos (Quartet, electric guitar) @ Interpress, Lisboa</li>
+                        <li>→ Finje (Trio, electric bass) @ Tundra, Ginjal</li>
+                        <li>→ Finje (Quartet, electric bass) @ Disgraça, Lisboa</li>
+                        <li>→ Finje (Quartet, electric bass) @ ADAO, Barreiro</li>
+                        <li>→ Finje (Quartet, electric guitar) @ Sala Lisa, Lisboa</li>
+                        <li>→ Finje (Quartet, electric guitar) @ ZDB, Lisboa</li>
+                        <li>→ Finje (Trio, bass) @ Damas, Lisboa</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- WRITER SECTION -->
+            <div class="section-content" id="writer">
+                <div class="section-label">Writing</div>
+                <h2 class="section-header">Writer, Reporter & Editor</h2>
+                <hr class="section-rule">
+                <div class="work-item">
+                    <h3>Writer & Content Producer · Available for Commission · 2025 – present</h3>
+                    <p>Independent writer and content producer available for commissioned event coverage, editorial documentation, and bilingual communications (PT/EN). Track record covering major international festivals and cultural events — producing critical essays, audience-facing copy, and editorial reports. Published in the national press and on <a href="https://substack.com/@queresviver" target="_blank">QV</a>.</p>
+                </div>
+                <div class="work-item">
+                    <h3>Commissioned Event Coverage</h3>
+                    <p class="writer-intro-note">The following were produced on commission or invitation from festivals and cultural organisations:</p>
+                    <ul>
+                        <li>→ <strong><a href="https://queresviver.substack.com/p/caminhos-do-cinema-portugues-parte" target="_blank">Caminhos do Cinema Português</a></strong> (December 2025) — Multi-part coverage including a critical account of the international premiere of Seta by Francisco Botelho. (<a href="https://queresviver.substack.com/p/caminhos-do-cinema-portugues-international" target="_blank">International premiere</a>)</li>
+                        <li>→ <strong><a href="https://queresviver.substack.com/p/sovereign-art-prize-the-gallery-as" target="_blank">Sovereign Art Prize</a></strong> (December 2025) — Critical essay on the exhibition, engaging themes of the sacred, the canonical, and the contemporary.</li>
+                        <li>→ <strong><a href="https://queresviver.substack.com/p/a-lei-o-tempo-o-amor-e-o-doclisboa" target="_blank">DocLisboa — International Documentary Film Festival</a></strong> (Lisboa, November 2025) — Critical essay weaving documentary form with questions of law, time, and love.</li>
+                        <li>→ <strong><a href="https://queresviver.substack.com/p/olhares-do-mediterraneo-12-edicao" target="_blank">Olhares do Mediterrâneo</a></strong> (Lisboa, 12th edition, November 2025) — Critical essay on cinema as a collective form of seeing across the Mediterranean.</li>
+                        <li>→ <strong><a href="https://queresviver.substack.com/p/boca-bienal-parte-1" target="_blank">BoCA — Biennial of Contemporary Arts</a></strong> (Lisboa, October 2025) — Extended multi-part critical coverage across the full programme of this major international festival of contemporary performance, spanning theatre, dance, installation, and interdisciplinary work. (<a href="https://queresviver.substack.com/p/boca-bienal-parte-2-and-3-pt" target="_blank">Part 2 & 3</a>, <a href="https://queresviver.substack.com/p/boca-bienal-parte-5-and-6-pt" target="_blank">Part 5 & 6</a>)</li>
+                        <li>→ <strong><a href="https://www.publico.pt/2025/10/13/fugas/noticia/tanz-im-august-berlim-sol-2149796" target="_blank">Tanz im August, Berlim ao Sol</a></strong> (the national press, October 2025) — Festival coverage reporting from one of Europe's preeminent contemporary dance festivals.</li>
+                        <li>→ <strong><a href="https://www.publico.pt/2024/10/26/fugas/noticia/bemvinda-hostilidade-bulgara-2108713" target="_blank">Bem-vinda Hostilidade Búlgara</a></strong> (the national press, October 2024) — Travel writing on Bulgaria.</li>
+                    </ul>
+                    <div class="writer-available-for">
+                        <strong>Available for:</strong> event documentation · conference and festival reporting · bilingual editorial content (PT/EN) · programme and communications copy · press writing · on-site coverage
                     </div>
                 </div>
-
-                <!-- PROJECTS SECTION -->
-                <div class="section-content" id="projects">
-                    <h2 class="section-header">Projects</h2>
-                    <div class="work-item">
-                        <h3>活字 (Huozi) — Multilingual News Aggregator · 2026 – present</h3>
-                        <p class="project-url"><a href="https://guilhermegfmachado.github.io/huozi" target="_blank">guilhermegfmachado.github.io/huozi</a></p>
-                        <p>An independently built RSS news aggregator pulling from global press sources across multiple languages and regions. Designed around the idea that reading the news in one language means reading one version of the world.</p>
-                    </div>
-                    <div class="work-item">
-                        <h3>Aleph (א) — Open-Access Literary Catalogue · 2025 – present</h3>
-                        <p class="project-url"><a href="https://guilhermegfmachado.github.io/aleph/index.html" target="_blank">guilhermegfmachado.github.io/aleph</a></p>
-                        <p>A universal literary catalogue built to index and cross-reference texts by theme across authors, traditions, and centuries. An exercise in building the tools one actually wants to exist.</p>
-                    </div>
+                <div class="work-item">
+                    <h3>Publications</h3>
+                    <ul>
+                        <li>→ <strong><a href="https://substack.com/@queresviver" target="_blank">Queres Viver (QV)</a></strong> — Portuguese and English event coverage and commissioned editorial work, 2025 – ongoing</li>
+                        <li>→ <strong>Circe</strong> — Literary magazine, <em>available upon request</em>, 2025</li>
+                        <li>→ <strong>Que Rosa Dói</strong> — Zine, <em>available upon request</em>, 2024</li>
+                        <li>→ <strong>Queres Viver?</strong> — Manifesto, <em>available upon request</em>, 2021</li>
+                    </ul>
                 </div>
+            </div>
 
-                <!-- TRANSLATOR SECTION -->
-                <div class="section-content" id="translator">
-                    <h2 class="section-header">Translator</h2>
-                    <p style="margin-bottom: 30px; font-size: 17px; line-height: 1.8;">See also: <a href="translation.html" style="color: #374151; text-decoration: none; border-bottom: 1px solid #d1d5db; transition: all 0.2s;">Translation services, rates & availability</a></p>
-                    <div class="work-item">
-                        <h3>Freelance Translator & Interpreter · Self-employed · 2020 – present</h3>
-                        <p><strong>Cultural & Contemporary Arts</strong></p>
-                        <ul>
-                            <li>• OUT.RA — Associação Cultural (2025) — Translation of promotional and communications materials for OUT.RA Música's programming, supporting the organisation's engagement with Portuguese and international audiences.</li>
-                            <li>• Fever (Lisboa, 2025) — Translation of materials for a large-scale live event production.</li>
-                            <li>• Associação Zé dos Bois / ZDB (Lisboa, 2024) — Translation of programme and performance texts for ZDB, one of Lisbon's foremost centres for contemporary visual art, experimental music, and live performance, with a three-decade history of international residencies and commissions.</li>
-                            <li>• Fundação EDP / Revista Electra (Lisboa, 2023) — Translation of philosophical essays and arts criticism for issues nº 20 and 21 of this prestigious bilingual (PT/EN) quarterly, one of Portugal's most ambitious cultural publishing projects, covering contemporary thought, literature, and the visual arts.</li>
-                            <li>• PédeXumbo — Assoc. para a Promoção de Música e Dança (Évora, 2022–2023) — Sustained collaboration across festival communications, international partnership correspondence, grant documentation, and website translation for this organisation at the centre of Portugal's traditional music and dance culture, including the Andanças festival, the country's largest folk gathering.</li>
-                        </ul>
-                        <p><strong>Audiovisual Localisation</strong></p>
-                        <ul>
-                            <li>• BlueLab Produções de Audiovisuais Lda (Lisboa, 2023) — Translation and cultural adaptation of video game scripts and advertising content for dubbing, balancing register, timing, and idiomatic precision for this specialist localisation and post-production studio.</li>
-                            <li>• Sintagma Traduções Unipessoal Lda (Oeiras, 2021–2022) — Subtitling of feature films, television series, documentaries, animation, and culinary programmes for one of Portugal's longest-established audiovisual localisation companies, working to broadcast-ready standards across multiple content genres.</li>
-                        </ul>
-                        <p><strong>Academic & Institutional</strong></p>
-                        <ul>
-                            <li>• Instituto Politécnico de Viseu (2024) — Research translation for a project addressing female genital mutilation, requiring sensitivity to specialist medical, legal, and advocacy registers; commissioned via formal public procurement (ECF-2024/144, Processo PA20240000313).</li>
-                            <li>• Neves de Almeida Alves Monteiro Lda (Lisboa, 2021–2022) — Corporate and technical translation of consulting documents, handling precise terminology across management, legal, and business domains.</li>
-                        </ul>
-                        <p><strong>Interpreting</strong></p>
-                        <ul>
-                            <li>• Ad hoc community and legal interpreting (Portuguese ↔ English), including assignment in a domestic dispute context requiring sustained accuracy, impartiality, and composure under emotionally charged conditions.</li>
-                        </ul>
-                    </div>
-                    <div class="work-item">
-                        <h3>Project Coordinator · TransPerfect Translations · May 2022 – January 2023 · Remote</h3>
-                        <ul>
-                            <li>• Daily end-to-end coordination of multiple simultaneous translation projects within one of the world's largest language services companies, managing competing deadlines and priorities across a high-volume production environment.</li>
-                            <li>• Responsibilities spanned full project lifecycle: document intake and preparation, resource allocation, quality review of final deliverables, and all written communication in English with sales teams, senior project managers, and a distributed network of freelance translators and specialists.</li>
-                        </ul>
-                    </div>
-                    <div class="work-item">
-                        <h3>Translation Intern · Sintagma Traduções Unipessoal Lda · 2019 – 2020 · Oeiras</h3>
-                        <ul>
-                            <li>• Curricular internship providing structured professional exposure to audiovisual subtitling workflows across a range of content genres, establishing the foundation of a sustained practice in screen translation.</li>
-                        </ul>
-                    </div>
+            <!-- BUILDING SECTION -->
+            <div class="section-content" id="building">
+                <div class="section-label">Volunteering</div>
+                <h2 class="section-header">Building, Gardening & Farmers' Market</h2>
+                <hr class="section-rule">
+                <div class="work-item">
+                    <h3>European Solidarity Corps Volunteer · European Union · 2024 – 2025</h3>
+                    <ul>
+                        <li>→ Certified gardening volunteer — two weeks, August 2025. Conservation and grounds maintenance in a legally protected nature reserve: mowing, pruning, sawing, wood-chopping, and deadwood clearance in the historic 19th-century Spa Park of Głuchołazy, located within the Landscape Park "Opava Mountains" and a designated Nature 2000 zone. Hosted by Fundacja Benevolens, which has managed the park for over a decade.</li>
+                        <li>→ Certified construction volunteer — one month, August 2024. Natural building and site development in Staro Stefanovo, an architectural and nature reserve in the Pre-Balkan foothills of Bulgaria (625m a.s.l.), a village of fewer than 30 inhabitants with Ottoman-era vernacular architecture. Work contributed to the Green Place project of Green Association: construction of a geo-dome, solar showers, dry toilets, a summer kitchen, and other ecological structures on a 100-year-old property being repurposed as a community eco-space.</li>
+                    </ul>
                 </div>
-
-                <!-- MUSICIAN SECTION -->
-                <div class="section-content" id="musician">
-                    <h2 class="section-header">Musician</h2>
-                    <div class="work-item">
-                        <h3>Projects</h3>
-                        <p>Played guitar in the recordings below, ranging from experimental folk (Raposa Branca, Roncos) to black metal (Fórnea) and noise-rock (Finje). Click below to listen.</p>
-                        <ul>
-                            <li>• <a href="https://www.youtube.com/watch?v=zz2jqBCUJZE" target="_blank">Fórnea - Santuário de Endovélico (2024)</a></li>
-                            <li>• <a href="https://www.youtube.com/watch?v=ZiKX2p4IUz0" target="_blank">Fórnea - Obscura Primal (2024)</a></li>
-                            <li>• <a href="https://www.youtube.com/watch?v=B1BTrPG6ke8" target="_blank">Roncos - Viola para Fins de Ascensão (2024)</a></li>
-                            <li>• <a href="https://www.youtube.com/watch?v=LLEQCChC72Y" target="_blank">Finje - S/T (2024)</a></li>
-                            <li>• <a href="https://machado.bandcamp.com/album/scritti-politici-dei-miei-ventanni" target="_blank">Raposa Branca - Scritti Politici Dei Miei Vent'Anni (2024)</a></li>
-                            <li>• <a href="https://www.youtube.com/watch?v=4U9AVAl1rAs" target="_blank">Finje - II (2023)</a></li>
-                            <li>• <a href="https://www.youtube.com/watch?v=iaeJURk7MB4" target="_blank">Roncos (2023 - ao vivo no KOT)</a></li>
-                            <li>• <a href="https://www.youtube.com/watch?v=dnu9JjLT4Fo" target="_blank">Raposa Branca - A Voz Vem Depois (2023)</a></li>
-                            <li>• <a href="https://www.youtube.com/watch?v=Ey_-yCTORUg" target="_blank">Roncos - Se Alguém Souber, Eram Os Vizinhos (2023)</a></li>
-                            <li>• <a href="https://www.youtube.com/watch?v=i9ZEhSxm-PE" target="_blank">Finje - I (2023)</a></li>
-                            <li>• <a href="https://www.youtube.com/watch?v=zO61Wcba2Go" target="_blank">Raposa Branca - Improv Pra Árvore (2022)</a></li>
-                        </ul>
-                    </div>
-                    <div class="work-item">
-                        <h3>Gigs</h3>
-                        <ul>
-                            <li>• Slumlord (Quartet, electric guitar) @ Musicbox, Lisboa</li>
-                            <li>• Raposa Branca (Solo, electric guitar, 12-string acoustic guitar and voice) @ Desterro, Lisboa</li>
-                            <li>• Roncos (Duo, acoustic guitar) @ Armazém 5, Porto</li>
-                            <li>• Roncos (Solo, 12-string acoustic guitar, prepared classical guitar and Bulgarian harp) @ Mindelo Fest, Mindelo</li>
-                            <li>• Roncos (Solo, prepared electro-acoustic guitar) @ KOT, Coina</li>
-                            <li>• Lodos (Quartet, electric guitar) @ Interpress, Lisboa</li>
-                            <li>• Finje (Trio, electric bass) @ Tundra, Ginjal</li>
-                            <li>• Finje (Quartet, electric bass) @ Disgraça, Lisboa</li>
-                            <li>• Finje (Quartet, electric bass) @ ADAO, Barreiro</li>
-                            <li>• Finje (Quartet, electric guitar) @ Sala Lisa, Lisboa</li>
-                            <li>• Finje (Quartet, electric guitar) @ ZDB, Lisboa</li>
-                            <li>• Finje (Trio, bass) @ Damas, Lisboa</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- WRITER SECTION -->
-                <div class="section-content" id="writer">
-                    <h2 class="section-header">Writer, Reporter & Editor</h2>
-                    <div class="work-item">
-                        <h3>Writer & Content Producer · Available for Commission · 2025 – present</h3>
-                        <p>Independent writer and content producer available for commissioned event coverage, editorial documentation, and bilingual communications (PT/EN). Track record covering major international festivals and cultural events — producing critical essays, audience-facing copy, and editorial reports. Published in the national press and on <a href="https://substack.com/@queresviver" target="_blank">QV</a>.</p>
-                    </div>
-                    <div class="work-item">
-                        <h3>Commissioned Event Coverage</h3>
-                        <p class="writer-intro-note">The following were produced on commission or invitation from festivals and cultural organisations:</p>
-                        <ul>
-                            <li>• <strong><a href="https://queresviver.substack.com/p/caminhos-do-cinema-portugues-parte" target="_blank">Caminhos do Cinema Português</a></strong> (December 2025) — Multi-part coverage including a critical account of the international premiere of Seta by Francisco Botelho. (<a href="https://queresviver.substack.com/p/caminhos-do-cinema-portugues-international" target="_blank">International premiere</a>)</li>
-                            <li>• <strong><a href="https://queresviver.substack.com/p/sovereign-art-prize-the-gallery-as" target="_blank">Sovereign Art Prize</a></strong> (December 2025) — Critical essay on the exhibition, engaging themes of the sacred, the canonical, and the contemporary.</li>
-                            <li>• <strong><a href="https://queresviver.substack.com/p/a-lei-o-tempo-o-amor-e-o-doclisboa" target="_blank">DocLisboa — International Documentary Film Festival</a></strong> (Lisboa, November 2025) — Critical essay weaving documentary form with questions of law, time, and love.</li>
-                            <li>• <strong><a href="https://queresviver.substack.com/p/olhares-do-mediterraneo-12-edicao" target="_blank">Olhares do Mediterrâneo</a></strong> (Lisboa, 12th edition, November 2025) — Critical essay on cinema as a collective form of seeing across the Mediterranean.</li>
-                            <li>• <strong><a href="https://queresviver.substack.com/p/boca-bienal-parte-1" target="_blank">BoCA — Biennial of Contemporary Arts</a></strong> (Lisboa, October 2025) — Extended multi-part critical coverage across the full programme of this major international festival of contemporary performance, spanning theatre, dance, installation, and interdisciplinary work. (<a href="https://queresviver.substack.com/p/boca-bienal-parte-2-and-3-pt" target="_blank">Part 2 & 3</a>, <a href="https://queresviver.substack.com/p/boca-bienal-parte-5-and-6-pt" target="_blank">Part 5 & 6</a>)</li>
-                            <li>• <strong><a href="https://www.publico.pt/2025/10/13/fugas/noticia/tanz-im-august-berlim-sol-2149796" target="_blank">Tanz im August, Berlim ao Sol</a></strong> (the national press, October 2025) — Festival coverage reporting from one of Europe's preeminent contemporary dance festivals.</li>
-                            <li>• <strong><a href="https://www.publico.pt/2024/10/26/fugas/noticia/bemvinda-hostilidade-bulgara-2108713" target="_blank">Bem-vinda Hostilidade Búlgara</a></strong> (the national press, October 2024) — Travel writing on Bulgaria.</li>
-                        </ul>
-                        <div class="writer-available-for">
-                            <strong>Available for:</strong> event documentation · conference and festival reporting · bilingual editorial content (PT/EN) · programme and communications copy · press writing · on-site coverage
-                        </div>
-                    </div>
-                    <div class="work-item">
-                        <h3>Publications</h3>
-                        <ul>
-                            <li>• <strong><a href="https://substack.com/@queresviver" target="_blank">Queres Viver (QV)</a></strong> — Portuguese and English event coverage and commissioned editorial work, 2025 – ongoing</li>
-                            <li>• <strong>Circe</strong> — Literary magazine, <em>available upon request</em>, 2025</li>
-                            <li>• <strong>Que Rosa Dói</strong> — Zine, <em>available upon request</em>, 2024</li>
-                            <li>• <strong>Queres Viver?</strong> — Manifesto, <em>available upon request</em>, 2021</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- BUILDING SECTION -->
-                <div class="section-content" id="building">
-                    <h2 class="section-header">Building, Gardening & Farmers' Market</h2>
-                    <div class="work-item">
-                        <h3>European Solidarity Corps Volunteer · European Union · 2024 – 2025</h3>
-                        <ul>
-                            <li>• Certified gardening volunteer — two weeks, August 2025. Conservation and grounds maintenance in a legally protected nature reserve: mowing, pruning, sawing, wood-chopping, and deadwood clearance in the historic 19th-century Spa Park of Głuchołazy, located within the Landscape Park "Opava Mountains" and a designated Nature 2000 zone. Hosted by Fundacja Benevolens, which has managed the park for over a decade.</li>
-                            <li>• Certified construction volunteer — one month, August 2024. Natural building and site development in Staro Stefanovo, an architectural and nature reserve in the Pre-Balkan foothills of Bulgaria (625m a.s.l.), a village of fewer than 30 inhabitants with Ottoman-era vernacular architecture. Work contributed to the Green Place project of Green Association: construction of a geo-dome, solar showers, dry toilets, a summer kitchen, and other ecological structures on a 100-year-old property being repurposed as a community eco-space.</li>
-                        </ul>
-                    </div>
-                    <div class="work-item">
-                        <h3>Agriculture & Local Food</h3>
-                        <ul>
-                            <li>• Collaborated with Quinta do Arneiro (Azueira), a Sativa Bio-PT-03 certified organic farm, at their Saturday markets in Jardim do Príncipe Real, Parque das Nações, and Cascais — loading produce, managing the stall, and direct sales to the public across some of Lisbon's most frequented outdoor markets.</li>
-                        </ul>
-                    </div>
+                <div class="work-item">
+                    <h3>Agriculture & Local Food</h3>
+                    <ul>
+                        <li>→ Collaborated with Quinta do Arneiro (Azueira), a Sativa Bio-PT-03 certified organic farm, at their Saturday markets in Jardim do Príncipe Real, Parque das Nações, and Cascais — loading produce, managing the stall, and direct sales to the public across some of Lisbon's most frequented outdoor markets.</li>
+                    </ul>
                 </div>
             </div>
         </main>
@@ -617,55 +593,59 @@
     </div>
 
     <script>
-        // Fade in body on load
         window.addEventListener('load', function() {
             document.body.classList.add('loaded');
         });
 
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('mobile-menu-toggle');
-            const menuWrap = document.getElementById('navigation__items-wrap');
-            const menuLinks = document.querySelectorAll('#navigation__items .nav-label');
+        // Hamburger overlay
+        const hamburger = document.getElementById('hamburger');
+        const overlay = document.getElementById('overlay-nav');
+        const overlayLinks = overlay.querySelectorAll('.overlay-link');
 
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function() {
-                    menuWrap.classList.toggle('open');
-                    this.textContent = menuWrap.classList.contains('open') ? '✕' : '☰';
-                });
-
-                // Close menu when clicking a link
-                menuLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        menuWrap.classList.remove('open');
-                        menuToggle.textContent = '☰';
-                    });
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!menuWrap.contains(e.target) && !menuToggle.contains(e.target)) {
-                        menuWrap.classList.remove('open');
-                        menuToggle.textContent = '☰';
-                    }
-                });
-            }
+        hamburger.addEventListener('click', function() {
+            const isOpen = overlay.classList.toggle('open');
+            this.textContent = isOpen ? '✕' : '☰';
         });
 
-        // Smooth scroll for navigation
-        document.querySelectorAll('#navigation__items .nav-label').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
+                overlay.classList.remove('open');
+                hamburger.textContent = '☰';
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
                 }
             });
         });
+
+        // Tab nav smooth scroll
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // IntersectionObserver for active tab
+        const sections = document.querySelectorAll('.section-content');
+        const tabLinks = document.querySelectorAll('.tab-link');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    tabLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+
+        sections.forEach(section => observer.observe(section));
     </script>
 </body>
 </html>
