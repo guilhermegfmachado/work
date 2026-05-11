@@ -6,27 +6,28 @@
     <title>Guilherme de G. F. Machado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #1a2744;
-            --green: #3ab54a;
-            --mint: #e8f5eb;
-            --white: #ffffff;
-            --grey: #f4f4f4;
-            --text: #1a2744;
+            --ink: #1C1C1C;
+            --text: #374151;
             --muted: #6b7280;
+            --light: #9ca3af;
+            --bg: #FAF8F5;
+            --bg-alt: #F0ECE6;
+            --border: #D8D3CB;
+            --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Kumbh Sans', sans-serif;
+            font-family: 'Lora', Georgia, 'Times New Roman', serif;
             font-weight: 400;
-            font-size: 1rem;
+            font-size: 17px;
             line-height: 1.7;
             color: var(--text);
-            background: var(--white);
+            background: var(--bg);
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -35,34 +36,44 @@
 
         /* ── HEADER ── */
         #site-header {
-            background: var(--navy);
-            padding: 3rem 2rem 2rem;
+            background: var(--bg);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 2rem;
+            border-bottom: 1px solid var(--border);
             position: relative;
         }
 
         #site-header h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--white);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.01em;
         }
 
         #site-header h1 a {
-            color: var(--white);
+            color: var(--ink);
             text-decoration: none;
         }
 
         #site-header .tagline {
-            color: var(--green);
-            font-size: 1rem;
-            margin-top: 0.3rem;
+            color: var(--muted);
+            font-size: 15px;
+            margin-top: 0.4rem;
         }
 
         #site-header .tagline a {
-            color: var(--green);
+            color: var(--muted);
             text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s, border-color 0.2s;
         }
 
-        #site-header .tagline a:hover { text-decoration: underline; }
+        #site-header .tagline a:hover {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
 
         /* ── HAMBURGER ── */
         #hamburger {
@@ -70,13 +81,13 @@
             top: 1.2rem;
             right: 1.2rem;
             z-index: 1000;
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: var(--green);
+            background: var(--ink);
             border: none;
-            color: var(--white);
-            font-size: 1.5rem;
+            color: var(--bg);
+            font-size: 1.3rem;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -84,14 +95,14 @@
             transition: transform 0.2s;
         }
 
-        #hamburger:hover { transform: scale(1.08); }
+        #hamburger:hover { transform: scale(1.06); }
 
         /* ── OVERLAY NAV ── */
         #overlay-nav {
             position: fixed;
             inset: 0;
             z-index: 999;
-            background: var(--navy);
+            background: var(--ink);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -108,22 +119,23 @@
         }
 
         #overlay-nav a {
-            color: var(--white);
+            color: var(--bg);
             text-decoration: none;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 2.4rem;
-            font-weight: 800;
-            transition: color 0.2s;
+            font-weight: 600;
+            transition: opacity 0.2s;
         }
 
-        #overlay-nav a:hover { color: var(--green); }
+        #overlay-nav a:hover { opacity: 0.6; }
 
         /* ── INLINE TAB NAV ── */
         #tab-nav {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: var(--white);
-            border-bottom: 1px solid #e5e7eb;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
             overflow-x: auto;
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
@@ -141,22 +153,22 @@
 
         .tab-link {
             display: inline-block;
-            padding: 1rem 1.2rem;
-            font-family: 'Kumbh Sans', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
+            padding: 0.9rem 1.2rem;
+            font-family: 'Lora', Georgia, serif;
+            font-size: 0.85rem;
+            font-weight: 400;
             color: var(--muted);
             text-decoration: none;
-            border-bottom: 3px solid transparent;
+            border-bottom: 2px solid transparent;
             transition: all 0.2s;
             white-space: nowrap;
         }
 
-        .tab-link:hover { color: var(--navy); }
+        .tab-link:hover { color: var(--ink); }
 
         .tab-link.active {
-            color: var(--navy);
-            border-bottom-color: var(--green);
+            color: var(--ink);
+            border-bottom-color: var(--ink);
         }
 
         /* ── MAIN CONTENT ── */
@@ -174,37 +186,38 @@
 
         .section-label {
             font-size: 0.75rem;
-            font-weight: 800;
+            font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--green);
+            color: var(--light);
             margin-bottom: 0.5rem;
         }
 
         .section-header {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--navy);
-            text-transform: uppercase;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: var(--ink);
+            text-transform: none;
             margin-bottom: 0.8rem;
-            line-height: 1.1;
+            line-height: 1.15;
             border: none;
             padding: 0;
         }
 
         .section-rule {
-            width: 60px;
-            height: 2px;
-            background: var(--green);
+            width: 50px;
+            height: 1px;
+            background: var(--border);
             border: none;
             margin-bottom: 2.5rem;
         }
 
         /* ── WORK ITEMS ── */
         .work-item {
-            border-left: 3px solid var(--green);
-            padding-left: 1rem;
-            margin-bottom: 2rem;
+            border-left: 2px solid var(--border);
+            padding-left: 1.2rem;
+            margin-bottom: 2.5rem;
             padding-bottom: 0;
             border-bottom: none;
         }
@@ -212,21 +225,21 @@
         .work-item:last-child { border-bottom: none; }
 
         .work-item h3 {
-            font-size: 1.1rem;
+            font-size: 17px;
             font-weight: 700;
-            color: var(--navy);
+            color: var(--ink);
             margin-bottom: 0.8rem;
         }
 
         .work-item p {
-            font-size: 1rem;
-            line-height: 1.7;
+            font-size: 17px;
+            line-height: 1.8;
             margin-bottom: 0.8rem;
         }
 
         .work-item p strong {
             font-weight: 700;
-            color: var(--navy);
+            color: var(--ink);
         }
 
         .work-item ul {
@@ -235,36 +248,40 @@
         }
 
         .work-item li {
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 0.4rem;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
         }
 
         .work-item li strong { font-weight: 700; }
 
         /* ── LINKS ── */
         .work-item a {
-            color: var(--green);
+            color: var(--text);
             text-decoration: none;
-            border-bottom: none;
+            border-bottom: 1px solid var(--border);
             transition: all 0.2s;
         }
 
-        .work-item a:hover { text-decoration: underline; }
+        .work-item a:hover {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
 
         /* ── PROJECT CARDS ── */
         .project-card {
-            background: var(--mint);
-            border-radius: 12px;
+            background: var(--bg-alt);
+            border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             border-left: none;
         }
 
         .project-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--navy);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--ink);
             margin-bottom: 0.5rem;
         }
 
@@ -273,35 +290,44 @@
         }
 
         .project-url a {
-            color: var(--green);
+            color: var(--muted);
             text-decoration: none;
-            font-size: 0.9rem;
-            border-bottom: none;
+            font-size: 0.85rem;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s;
         }
 
-        .project-url a:hover { text-decoration: underline; }
+        .project-url a:hover {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
 
-        .project-url a::before { content: "→ "; color: var(--green); }
+        .project-url a::before { content: "→ "; color: var(--light); }
 
         .project-card p {
-            font-size: 1rem;
-            line-height: 1.7;
+            font-size: 17px;
+            line-height: 1.8;
             margin-bottom: 0;
         }
 
         /* ── TRANSLATOR LINK ── */
         .translator-services-link {
             margin-bottom: 2rem;
-            font-size: 1rem;
+            font-size: 17px;
             line-height: 1.7;
         }
 
         .translator-services-link a {
-            color: var(--green);
+            color: var(--text);
             text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s;
         }
 
-        .translator-services-link a:hover { text-decoration: underline; }
+        .translator-services-link a:hover {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
 
         /* ── WRITER EXTRAS ── */
         .writer-intro-note {
@@ -312,27 +338,30 @@
 
         .writer-available-for {
             margin-top: 1.5rem;
-            padding: 1.2rem 1rem;
-            border-left: 3px solid var(--green);
+            padding: 1.2rem 1.2rem;
+            border-left: 2px solid var(--border);
             font-size: 0.95rem;
             line-height: 1.8;
             color: var(--text);
-            background: var(--mint);
-            border-radius: 0 8px 8px 0;
+            background: var(--bg-alt);
+            border-radius: 0 6px 6px 0;
         }
 
         .writer-available-for strong {
             font-weight: 700;
-            color: var(--navy);
+            color: var(--ink);
         }
 
         /* ── FOOTER ── */
         footer {
-            background: var(--navy);
-            color: var(--white);
+            max-width: 900px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border);
+            color: var(--light);
             text-align: center;
             padding: 2rem;
-            font-size: 0.85rem;
+            font-size: 13px;
+            background: transparent;
         }
 
         /* ── MOBILE ── */
@@ -346,9 +375,9 @@
 
             .section-header { font-size: 1.8rem; }
 
-            .work-item h3 { font-size: 1rem; }
+            .work-item h3 { font-size: 16px; }
 
-            .work-item li, .work-item p { font-size: 0.95rem; }
+            .work-item li, .work-item p { font-size: 16px; }
 
             main { padding: 0 1.2rem 3rem; }
 
@@ -356,7 +385,7 @@
 
             #tab-nav-inner { padding: 0 1rem; }
 
-            .tab-link { padding: 0.8rem 1rem; font-size: 0.85rem; }
+            .tab-link { padding: 0.8rem 1rem; font-size: 0.8rem; }
 
             #overlay-nav a { font-size: 1.8rem; }
 
