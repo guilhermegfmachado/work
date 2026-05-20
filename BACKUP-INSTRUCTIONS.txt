@@ -1,16 +1,17 @@
 ============================================================
   BACKUP & RECOVERY INSTRUCTIONS
   guilhermegfmachado.github.io/work
-  Last updated: March 2026
+  Last updated: May 2026
 ============================================================
 
 WHAT'S IN THIS BACKUP
 ---------------------
   index.html         — Main portfolio page
   translation.html   — Standalone translation services page
+  favicon.svg        — Browser tab icon (letter G)
 
 That's the entire site. No build tools, no dependencies,
-no databases. Just two HTML files.
+no databases. Just two HTML files and a favicon.
 
 
 HOW TO VIEW LOCALLY
@@ -36,7 +37,7 @@ HOW TO PUT IT BACK ONLINE (GITHUB PAGES — FREE)
 
 3. Upload the files:
    - On the new repo page, click "uploading an existing file"
-   - Drag both index.html and translation.html into the upload area
+   - Drag index.html, translation.html, and favicon.svg into the upload area
    - Click "Commit changes"
 
 4. Enable GitHub Pages:
@@ -95,12 +96,12 @@ HOW TO RESTORE FROM THIS BACKUP
 If you lose the GitHub repo or want to start fresh:
 
 1. Create a new repo on GitHub (step 2 above)
-2. Upload index.html and translation.html (step 3 above)
+2. Upload index.html, translation.html, and favicon.svg (step 3 above)
 3. Enable GitHub Pages (step 4 above)
 4. Re-add custom domain if you had one (steps above)
 
-That's it. The site is two files. No build step, no install,
-no server. Just HTML.
+That's it. The site is three files. No build step, no install,
+no server. Just HTML and an icon.
 
 
 HOW TO EDIT THE SITE
@@ -116,7 +117,7 @@ When happy, upload the changed file(s) to GitHub:
   - Paste the new contents, commit
 
 Or use git from the terminal:
-  git add index.html translation.html
+  git add index.html translation.html favicon.svg
   git commit -m "Update site"
   git push
 
@@ -137,5 +138,5 @@ CONTACT FOR HELP
 ----------------
 If this is being read by someone who isn't Guilherme and
 you need to get the site back up: the site is just two
-HTML files. Any web developer can have it running in
-5 minutes. There is nothing to install or configure.
+HTML files and a favicon. Any web developer can have it
+running in 5 minutes. There is nothing to install or configure.

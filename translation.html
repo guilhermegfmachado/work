@@ -4,77 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Translation — Guilherme de G. F. Machado</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ink: #1C1C1C;
+            --text: #374151;
+            --muted: #6b7280;
+            --light: #9ca3af;
+            --bg: #FAF8F5;
+            --bg-alt: #F0ECE6;
+            --border: #D8D3CB;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Lora', Georgia, 'Times New Roman', serif;
             line-height: 1.7;
-            color: #374151;
-            background: #F9F7F4;
+            color: var(--text);
+            background: var(--bg);
             opacity: 0;
             transition: opacity 0.3s;
             font-size: 17px;
         }
 
-        body.loaded {
-            opacity: 1;
-        }
+        body.loaded { opacity: 1; }
 
-        #page {
-            min-height: 100vh;
-        }
+        #page { min-height: 100vh; }
 
         header {
             max-width: 800px;
             margin: 0 auto;
             padding: 60px 30px 40px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border);
         }
 
         header h1 {
             font-size: 18px;
             font-weight: 700;
-            color: #1A3A2A;
+            color: var(--ink);
             margin-bottom: 6px;
         }
 
         header h1 a {
-            color: #1A3A2A;
+            color: var(--ink);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: opacity 0.2s;
         }
 
-        header h1 a:hover {
-            color: #2563EB;
-        }
+        header h1 a:hover { opacity: 0.6; }
 
         header .tagline {
             font-size: 15px;
-            color: #6b7280;
+            color: var(--muted);
             margin-bottom: 6px;
         }
 
         header .contact-line {
             font-size: 13px;
-            color: #6b7280;
+            color: var(--muted);
         }
 
         header .contact-line a {
-            color: #6b7280;
+            color: var(--muted);
             text-decoration: none;
-            transition: color 0.2s;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s;
         }
 
         header .contact-line a:hover {
-            color: #2563EB;
+            color: var(--ink);
+            border-bottom-color: var(--ink);
         }
 
         main {
@@ -84,17 +87,13 @@
         }
 
         .section-header {
-            font-size: 22px;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: #1A3A2A;
+            color: var(--ink);
             margin-bottom: 30px;
             margin-top: 20px;
             padding-bottom: 12px;
-            padding-left: 14px;
-            border-bottom: 2px solid #1A3A2A;
-            border-left: 4px solid #1A3A2A;
-            display: block;
-            cursor: default;
+            border-bottom: 1px solid var(--border);
         }
 
         .section-content {
@@ -104,17 +103,15 @@
         .work-item {
             margin-bottom: 40px;
             padding-bottom: 30px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border);
         }
 
-        .work-item:last-child {
-            border-bottom: none;
-        }
+        .work-item:last-child { border-bottom: none; }
 
         .work-item h3 {
             font-size: 17px;
-            font-weight: 600;
-            color: #1A3A2A;
+            font-weight: 700;
+            color: var(--ink);
             margin-bottom: 16px;
         }
 
@@ -127,31 +124,29 @@
             font-size: 17px;
             line-height: 1.8;
             margin-bottom: 16px;
-            text-align: left;
         }
 
         .work-item p {
             font-size: 17px;
             line-height: 1.8;
             margin-bottom: 16px;
-            text-align: left;
         }
 
         .work-item p strong {
             font-weight: 700;
-            color: #1A3A2A;
+            color: var(--ink);
         }
 
         .work-item a {
-            color: #374151;
+            color: var(--text);
             text-decoration: none;
-            border-bottom: 1px solid #d1d5db;
+            border-bottom: 1px solid var(--border);
             transition: all 0.2s;
         }
 
         .work-item a:hover {
-            color: #2563EB;
-            border-bottom-color: #2563EB;
+            color: var(--ink);
+            border-bottom-color: var(--ink);
         }
 
         .language-pairs {
@@ -163,38 +158,35 @@
 
         .language-pair .direction {
             font-size: 17px;
-            font-weight: 600;
-            color: #1A3A2A;
+            font-weight: 700;
+            color: var(--ink);
             margin-bottom: 6px;
         }
 
         .language-pair .detail {
             font-size: 15px;
-            color: #6b7280;
+            color: var(--muted);
             line-height: 1.6;
         }
 
         .secondary-pairs {
             font-size: 15px;
-            color: #9ca3af;
+            color: var(--light);
             margin-top: 10px;
         }
 
-        .spec-item {
-            margin-bottom: 30px;
-        }
+        .spec-item { margin-bottom: 30px; }
 
         .spec-item h3 {
             font-size: 17px;
-            font-weight: 600;
-            color: #1A3A2A;
+            font-weight: 700;
+            color: var(--ink);
             margin-bottom: 8px;
         }
 
         .spec-item p {
             font-size: 17px;
             line-height: 1.8;
-            text-align: left;
         }
 
         .clients-list {
@@ -204,35 +196,32 @@
 
         .clients-list li {
             padding: 14px 0;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border);
             font-size: 17px;
         }
 
-        .clients-list li:last-child {
-            border-bottom: none;
-        }
+        .clients-list li:last-child { border-bottom: none; }
 
         .client-name {
-            font-weight: 600;
-            color: #1A3A2A;
+            font-weight: 700;
+            color: var(--ink);
         }
 
         .client-detail {
-            color: #6b7280;
+            color: var(--muted);
             font-size: 15px;
             margin-top: 4px;
         }
 
         .footnote {
             font-size: 13px;
-            color: #9ca3af;
+            color: var(--light);
             margin-top: 20px;
         }
 
         .about-text {
             font-size: 17px;
             line-height: 1.8;
-            text-align: left;
             margin-bottom: 16px;
         }
 
@@ -240,23 +229,20 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 30px;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid var(--border);
             font-size: 17px;
             text-align: center;
         }
 
         .cta a {
-            color: #1A3A2A;
+            color: var(--ink);
             text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid #d1d5db;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border);
             transition: all 0.2s;
         }
 
-        .cta a:hover {
-            color: #2563EB;
-            border-bottom-color: #2563EB;
-        }
+        .cta a:hover { border-bottom-color: var(--ink); }
 
         .back-link {
             margin-top: 20px;
@@ -264,41 +250,31 @@
         }
 
         .back-link a {
-            color: #9ca3af;
+            color: var(--light);
             text-decoration: none;
             transition: color 0.2s;
         }
 
-        .back-link a:hover {
-            color: #2563EB;
-        }
+        .back-link a:hover { color: var(--ink); }
 
         footer {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 30px;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid var(--border);
             font-size: 13px;
-            color: #9ca3af;
+            color: var(--light);
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 40px 20px 30px;
-            }
+            header { padding: 40px 20px 30px; }
 
-            main {
-                padding: 40px 20px;
-            }
+            main { padding: 40px 20px; }
 
-            .section-header {
-                font-size: 20px;
-            }
+            .section-header { font-size: 1.2rem; }
 
             .work-item h3,
-            .spec-item h3 {
-                font-size: 16px;
-            }
+            .spec-item h3 { font-size: 16px; }
 
             .work-item li,
             .work-item p,
@@ -309,21 +285,13 @@
                 line-height: 1.7;
             }
 
-            .language-pairs {
-                grid-template-columns: 1fr;
-            }
+            .language-pairs { grid-template-columns: 1fr; }
 
-            .section-content {
-                margin-bottom: 60px;
-            }
+            .section-content { margin-bottom: 60px; }
 
-            .cta {
-                padding: 30px 20px;
-            }
+            .cta { padding: 30px 20px; }
 
-            footer {
-                padding: 30px 20px;
-            }
+            footer { padding: 30px 20px; }
         }
     </style>
 </head>
