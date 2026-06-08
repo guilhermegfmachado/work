@@ -182,6 +182,38 @@
 
         .work-item li strong { font-weight: 700; }
 
+        /* ── COLLAPSIBLE WORK ITEMS ── */
+        details.work-item > summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        details.work-item > summary::-webkit-details-marker { display: none; }
+
+        details.work-item > summary h3 {
+            margin-bottom: 0;
+            padding-right: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        details.work-item > summary h3::after {
+            content: '›';
+            position: absolute;
+            right: 0;
+            color: var(--light);
+            font-weight: 400;
+            transition: transform 0.15s;
+        }
+
+        details[open] > summary h3::after {
+            transform: rotate(90deg);
+        }
+
+        details[open] > summary {
+            margin-bottom: 0.8rem;
+        }
+
         /* ── LINKS ── */
         .work-item a {
             color: var(--text);
@@ -340,30 +372,30 @@
             <div class="section-content" id="teacher">
                 <h2 class="section-header">Teacher</h2>
                 <hr class="section-rule">
-                <div class="work-item">
-                    <h3>English & PLNM Teacher · Director de Turma · Colégio Miramar · December 2025 – present</h3>
+                <details class="work-item" open>
+                    <summary><h3>English & PLNM Teacher · Director de Turma · Colégio Miramar · December 2025 – present</h3></summary>
                     <ul>
                         <li>→ Teaching English to eight classes across 7th and 11th grade — three and five classes respectively — with 20 to 30 students per class, spanning a broad range of ages, abilities, and learning profiles.</li>
                         <li>→ Curriculum lead for the 11th grade cohort: sole responsibility for the design, sequencing, and delivery of the full English syllabus for five exam-year classes, ensuring coherence across the year group.</li>
                         <li>→ Teaching Portuguese as a Non-Native Language (PLNM — Português Língua Não Materna) alongside English, working across different proficiency levels and adapting materials to the specific linguistic and cultural backgrounds of individual learners.</li>
                         <li>→ Director de Turma (Form Tutor): primary institutional point of contact between the school and families; responsible for the holistic oversight of a class group's academic progress, attendance, and welfare; coordinating across subject teachers, year leadership, and specialist support staff; and managing the sustained pastoral and administrative demands that arise at the intersection of the classroom and the home.</li>
                     </ul>
-                </div>
-                <div class="work-item">
-                    <h3>Teacher & Administrative Assistant · Helen Doron Torres Vedras · September 2024 – December 2025</h3>
+                </details>
+                <details class="work-item">
+                    <summary><h3>Teacher & Administrative Assistant · Helen Doron Torres Vedras · September 2024 – December 2025</h3></summary>
                     <ul>
                         <li>→ Delivering English instruction to children, pre-adolescents, and teenagers using the Helen Doron proprietary methodology, with particular attention to immersive, play-based learning in younger groups, and one-to-one private tuition for adult learners.</li>
                         <li>→ Administrative and compliance responsibilities: management of CRM platforms (HubSpot, Salesforce); preparation and maintenance of Dossiers Técnico-Pedagógicos in full compliance with DGERT certification standards; and oversight of health, safety, and facilities documentation including insurance files, hygiene and safety records, and fire-safety equipment compliance.</li>
                         <li>→ Completed the Helen Doron Teacher Training Course (TTC), a specialised certification focused on fun, creative, and immersive approaches to language learning for young learners.</li>
                     </ul>
-                </div>
-                <div class="work-item">
-                    <h3>English Teacher · Escola Agrícola Fernando Barros Leal · January 2025 – September 2025</h3>
+                </details>
+                <details class="work-item">
+                    <summary><h3>English Teacher · Escola Agrícola Fernando Barros Leal · January 2025 – September 2025</h3></summary>
                     <ul>
                         <li>→ Taught English to over 100 adolescents and young adults enrolled in vocational (cursos profissionais) and CEF programmes, navigating the distinct pedagogical demands of qualification-oriented secondary education.</li>
                         <li>→ Worked extensively with learners presenting significant learning difficulties and/or complex behavioural needs, developing differentiated approaches and maintaining productive classroom environments under sustained pressure.</li>
                     </ul>
-                </div>
+                </details>
             </div>
 
             <!-- PROJECTS SECTION -->
@@ -397,8 +429,8 @@
                 <h2 class="section-header">Translator</h2>
                 <hr class="section-rule">
                 <p class="translator-services-link">See also: <a href="translation.html">Translation services, rates & availability</a></p>
-                <div class="work-item">
-                    <h3>Freelance Translator & Interpreter · Self-employed · 2020 – present</h3>
+                <details class="work-item" open>
+                    <summary><h3>Freelance Translator & Interpreter · Self-employed · 2020 – present</h3></summary>
                     <p><strong>Cultural & Contemporary Arts</strong></p>
                     <ul>
                         <li>→ OUT.RA — Associação Cultural (2025) — Translation of promotional and communications materials for OUT.RA Música's programming, supporting the organisation's engagement with Portuguese and international audiences.</li>
@@ -421,28 +453,28 @@
                     <ul>
                         <li>→ Ad hoc community and legal interpreting (Portuguese ↔ English), including assignment in a domestic dispute context requiring sustained accuracy, impartiality, and composure under emotionally charged conditions.</li>
                     </ul>
-                </div>
-                <div class="work-item">
-                    <h3>Project Coordinator · TransPerfect Translations · May 2022 – January 2023 · Remote</h3>
+                </details>
+                <details class="work-item">
+                    <summary><h3>Project Coordinator · TransPerfect Translations · May 2022 – January 2023 · Remote</h3></summary>
                     <ul>
                         <li>→ Daily end-to-end coordination of multiple simultaneous translation projects within one of the world's largest language services companies, managing competing deadlines and priorities across a high-volume production environment.</li>
                         <li>→ Responsibilities spanned full project lifecycle: document intake and preparation, resource allocation, quality review of final deliverables, and all written communication in English with sales teams, senior project managers, and a distributed network of freelance translators and specialists.</li>
                     </ul>
-                </div>
-                <div class="work-item">
-                    <h3>Translation Intern · Sintagma Traduções Unipessoal Lda · 2019 – 2020 · Oeiras</h3>
+                </details>
+                <details class="work-item">
+                    <summary><h3>Translation Intern · Sintagma Traduções Unipessoal Lda · 2019 – 2020 · Oeiras</h3></summary>
                     <ul>
                         <li>→ Curricular internship providing structured professional exposure to audiovisual subtitling workflows across a range of content genres, establishing the foundation of a sustained practice in screen translation.</li>
                     </ul>
-                </div>
+                </details>
             </div>
 
             <!-- MUSICIAN SECTION -->
             <div class="section-content" id="musician">
                 <h2 class="section-header">Musician</h2>
                 <hr class="section-rule">
-                <div class="work-item">
-                    <h3>Projects</h3>
+                <details class="work-item" open>
+                    <summary><h3>Projects</h3></summary>
                     <p>Played guitar in the recordings below, ranging from experimental folk (Raposa Branca, Roncos) to black metal (Fórnea) and noise-rock (Finje). Click below to listen.</p>
                     <ul>
                         <li>→ <a href="https://www.youtube.com/watch?v=zz2jqBCUJZE" target="_blank">Fórnea - Santuário de Endovélico (2024)</a></li>
@@ -457,9 +489,9 @@
                         <li>→ <a href="https://www.youtube.com/watch?v=i9ZEhSxm-PE" target="_blank">Finje - I (2023)</a></li>
                         <li>→ <a href="https://www.youtube.com/watch?v=zO61Wcba2Go" target="_blank">Raposa Branca - Improv Pra Árvore (2022)</a></li>
                     </ul>
-                </div>
-                <div class="work-item">
-                    <h3>Gigs</h3>
+                </details>
+                <details class="work-item">
+                    <summary><h3>Gigs</h3></summary>
                     <ul>
                         <li>→ Slumlord (Quartet, electric guitar) @ Musicbox, Lisboa</li>
                         <li>→ Raposa Branca (Solo, electric guitar, 12-string acoustic guitar and voice) @ Desterro, Lisboa</li>
@@ -474,19 +506,19 @@
                         <li>→ Finje (Quartet, electric guitar) @ ZDB, Lisboa</li>
                         <li>→ Finje (Trio, bass) @ Damas, Lisboa</li>
                     </ul>
-                </div>
+                </details>
             </div>
 
             <!-- WRITER SECTION -->
             <div class="section-content" id="writer">
                 <h2 class="section-header">Writer, Reporter & Editor</h2>
                 <hr class="section-rule">
-                <div class="work-item">
-                    <h3>Writer & Content Producer · Available for Commission · 2025 – present</h3>
+                <details class="work-item" open>
+                    <summary><h3>Writer & Content Producer · Available for Commission · 2025 – present</h3></summary>
                     <p>Independent writer and content producer available for commissioned event coverage, editorial documentation, and bilingual communications (PT/EN). Track record covering major international festivals and cultural events — producing critical essays, audience-facing copy, and editorial reports. Published in the national press and on <a href="https://substack.com/@queresviver" target="_blank">QV</a>.</p>
-                </div>
-                <div class="work-item">
-                    <h3>Commissioned Event Coverage</h3>
+                </details>
+                <details class="work-item" open>
+                    <summary><h3>Commissioned Event Coverage</h3></summary>
                     <p class="writer-intro-note">The following were produced on commission or invitation from festivals and cultural organisations:</p>
                     <ul>
                         <li>→ <strong><a href="https://queresviver.substack.com/p/caminhos-do-cinema-portugues-parte" target="_blank">Caminhos do Cinema Português</a></strong> (December 2025) — Multi-part coverage including a critical account of the international premiere of Seta by Francisco Botelho. (<a href="https://queresviver.substack.com/p/caminhos-do-cinema-portugues-international" target="_blank">International premiere</a>)</li>
@@ -500,35 +532,35 @@
                     <div class="writer-available-for">
                         <strong>Available for:</strong> event documentation · conference and festival reporting · bilingual editorial content (PT/EN) · programme and communications copy · press writing · on-site coverage
                     </div>
-                </div>
-                <div class="work-item">
-                    <h3>Publications</h3>
+                </details>
+                <details class="work-item">
+                    <summary><h3>Publications</h3></summary>
                     <ul>
                         <li>→ <strong><a href="https://substack.com/@queresviver" target="_blank">Queres Viver (QV)</a></strong> — Portuguese and English event coverage and commissioned editorial work, 2025 – ongoing</li>
                         <li>→ <strong>Circe</strong> — Literary magazine, <em>available upon request</em>, 2025</li>
                         <li>→ <strong>Que Rosa Dói</strong> — Zine, <em>available upon request</em>, 2024</li>
                         <li>→ <strong>Queres Viver?</strong> — Manifesto, <em>available upon request</em>, 2021</li>
                     </ul>
-                </div>
+                </details>
             </div>
 
             <!-- BUILDING SECTION -->
             <div class="section-content" id="building">
                 <h2 class="section-header">Building, Gardening & Farmers' Market</h2>
                 <hr class="section-rule">
-                <div class="work-item">
-                    <h3>European Solidarity Corps Volunteer · European Union · 2024 – 2025</h3>
+                <details class="work-item">
+                    <summary><h3>European Solidarity Corps Volunteer · European Union · 2024 – 2025</h3></summary>
                     <ul>
                         <li>→ Certified gardening volunteer — two weeks, August 2025. Conservation and grounds maintenance in a legally protected nature reserve: mowing, pruning, sawing, wood-chopping, and deadwood clearance in the historic 19th-century Spa Park of Głuchołazy, located within the Landscape Park "Opava Mountains" and a designated Nature 2000 zone. Hosted by Fundacja Benevolens, which has managed the park for over a decade.</li>
                         <li>→ Certified construction volunteer — one month, August 2024. Natural building and site development in Staro Stefanovo, an architectural and nature reserve in the Pre-Balkan foothills of Bulgaria (625m a.s.l.), a village of fewer than 30 inhabitants with Ottoman-era vernacular architecture. Work contributed to the Green Place project of Green Association: construction of a geo-dome, solar showers, dry toilets, a summer kitchen, and other ecological structures on a 100-year-old property being repurposed as a community eco-space.</li>
                     </ul>
-                </div>
-                <div class="work-item">
-                    <h3>Agriculture & Local Food</h3>
+                </details>
+                <details class="work-item">
+                    <summary><h3>Agriculture & Local Food</h3></summary>
                     <ul>
                         <li>→ Collaborated with Quinta do Arneiro (Azueira), a Sativa Bio-PT-03 certified organic farm, at their Saturday markets in Jardim do Príncipe Real, Parque das Nações, and Cascais — loading produce, managing the stall, and direct sales to the public across some of Lisbon's most frequented outdoor markets.</li>
                     </ul>
-                </div>
+                </details>
             </div>
         </main>
 
