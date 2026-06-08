@@ -1,7 +1,7 @@
 ============================================================
   BACKUP & RECOVERY INSTRUCTIONS
   guilhermegfmachado.github.io/work
-  Last updated: May 2026
+  Last updated: June 2026
 ============================================================
 
 WHAT'S IN THIS BACKUP
