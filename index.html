@@ -4,11 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guilherme de G. F. Machado</title>
+    <meta name="description" content="Teacher, translator, musician, and writer based in Lisbon. Open to translation, writing commissions, and collaborations in Portuguese and English.">
+    <meta property="og:title" content="Guilherme de G. F. Machado">
+    <meta property="og:description" content="Teacher, translator, musician, and writer based in Lisbon. Open to translation, writing commissions, and collaborations in Portuguese and English.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://guilhermegfmachado.github.io/work/">
+    <meta name="twitter:card" content="summary">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
+        /* Lora, self-hosted (variable font, weights 400-700) */
+        @font-face {
+            font-family: 'Lora';
+            font-style: normal;
+            font-weight: 400 700;
+            font-display: swap;
+            src: url(fonts/lora-latin.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Lora';
+            font-style: normal;
+            font-weight: 400 700;
+            font-display: swap;
+            src: url(fonts/lora-latin-ext.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'Lora';
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: url(fonts/lora-italic-latin.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Lora';
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: url(fonts/lora-italic-latin-ext.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
         :root {
             --ink: #1C1C1C;
             --text: #374151;
@@ -59,6 +96,14 @@
             color: var(--muted);
             font-size: 15px;
             margin-top: 0.4rem;
+        }
+
+        #site-header .intro {
+            max-width: 620px;
+            margin-top: 1.2rem;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
         }
 
         #site-header .tagline a {
@@ -346,6 +391,19 @@
 
             .project-card { padding: 1.2rem; }
         }
+
+        /* ── PRINT ── */
+        @media print {
+            #tab-nav { display: none; }
+            details[open] > summary h3::after,
+            details > summary h3::after { display: none; }
+            details:not([open]) > * { display: block; }
+            details:not([open]) { display: block; }
+            .section-content { padding-top: 2rem; break-inside: avoid; }
+            .work-item { break-inside: avoid; }
+            body { font-size: 11pt; }
+            #site-header { padding-top: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -354,50 +412,21 @@
         <header id="site-header">
             <h1><a href="#">Guilherme de G. F. Machado</a></h1>
             <div class="tagline">Open to translation, writing commissions, and collaborations · <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></div>
+            <p class="intro">Translator, writer, teacher, and musician based in Lisbon. I work between Portuguese and English: translating for cultural institutions and festivals, writing criticism for the national press and QV, teaching English and PLNM, and playing guitar in rooms of varying acoustics.</p>
         </header>
 
         <nav id="tab-nav">
             <div id="tab-nav-inner">
-                <a class="tab-link" href="#teacher">Teacher</a>
                 <a class="tab-link" href="#translator">Translator</a>
-                <a class="tab-link" href="#musician">Musician</a>
                 <a class="tab-link" href="#writer">Writer</a>
+                <a class="tab-link" href="#teacher">Teacher</a>
+                <a class="tab-link" href="#musician">Musician</a>
                 <a class="tab-link" href="#projects">Projects</a>
                 <a class="tab-link" href="#building">Building</a>
             </div>
         </nav>
 
         <main>
-            <!-- TEACHER SECTION -->
-            <div class="section-content" id="teacher">
-                <h2 class="section-header">Teacher</h2>
-                <hr class="section-rule">
-                <details class="work-item" open>
-                    <summary><h3>English & PLNM Teacher · Director de Turma · Colégio Miramar · December 2025 – present</h3></summary>
-                    <ul>
-                        <li>→ Teaching English to eight classes across 7th and 11th grade — three and five classes respectively — with 20 to 30 students per class, spanning a broad range of ages, abilities, and learning profiles.</li>
-                        <li>→ Curriculum lead for the 11th grade cohort: sole responsibility for the design, sequencing, and delivery of the full English syllabus for five exam-year classes, ensuring coherence across the year group.</li>
-                        <li>→ Teaching Portuguese as a Non-Native Language (PLNM — Português Língua Não Materna) alongside English, working across different proficiency levels and adapting materials to the specific linguistic and cultural backgrounds of individual learners.</li>
-                        <li>→ Director de Turma (Form Tutor): primary institutional point of contact between the school and families; responsible for the holistic oversight of a class group's academic progress, attendance, and welfare; coordinating across subject teachers, year leadership, and specialist support staff; and managing the sustained pastoral and administrative demands that arise at the intersection of the classroom and the home.</li>
-                    </ul>
-                </details>
-                <details class="work-item">
-                    <summary><h3>Teacher & Administrative Assistant · Helen Doron Torres Vedras · September 2024 – December 2025</h3></summary>
-                    <ul>
-                        <li>→ Delivering English instruction to children, pre-adolescents, and teenagers using the Helen Doron proprietary methodology, with particular attention to immersive, play-based learning in younger groups, and one-to-one private tuition for adult learners.</li>
-                        <li>→ Administrative and compliance responsibilities: management of CRM platforms (HubSpot, Salesforce); preparation and maintenance of Dossiers Técnico-Pedagógicos in full compliance with DGERT certification standards; and oversight of health, safety, and facilities documentation including insurance files, hygiene and safety records, and fire-safety equipment compliance.</li>
-                        <li>→ Completed the Helen Doron Teacher Training Course (TTC), a specialised certification focused on fun, creative, and immersive approaches to language learning for young learners.</li>
-                    </ul>
-                </details>
-                <details class="work-item">
-                    <summary><h3>English Teacher · Escola Agrícola Fernando Barros Leal · January 2025 – September 2025</h3></summary>
-                    <ul>
-                        <li>→ Taught English to over 100 adolescents and young adults enrolled in vocational (cursos profissionais) and CEF programmes, navigating the distinct pedagogical demands of qualification-oriented secondary education.</li>
-                        <li>→ Worked extensively with learners presenting significant learning difficulties and/or complex behavioural needs, developing differentiated approaches and maintaining productive classroom environments under sustained pressure.</li>
-                    </ul>
-                </details>
-            </div>
-
             <!-- TRANSLATOR SECTION -->
             <div class="section-content" id="translator">
                 <h2 class="section-header">Translator</h2>
@@ -443,46 +472,6 @@
                 </details>
             </div>
 
-            <!-- MUSICIAN SECTION -->
-            <div class="section-content" id="musician">
-                <h2 class="section-header">Musician</h2>
-                <hr class="section-rule">
-                <details class="work-item" open>
-                    <summary><h3>Projects</h3></summary>
-                    <p>Played guitar in the recordings below, ranging from experimental folk (Raposa Branca, Roncos) to black metal (Fórnea) and noise-rock (Finje). Click below to listen.</p>
-                    <ul>
-                        <li>→ <a href="https://www.youtube.com/watch?v=zz2jqBCUJZE" target="_blank" rel="noopener">Fórnea - Santuário de Endovélico (2024)</a></li>
-                        <li>→ <a href="https://www.youtube.com/watch?v=ZiKX2p4IUz0" target="_blank" rel="noopener">Fórnea - Obscura Primal (2024)</a></li>
-                        <li>→ <a href="https://www.youtube.com/watch?v=B1BTrPG6ke8" target="_blank" rel="noopener">Roncos - Viola para Fins de Ascensão (2024)</a></li>
-                        <li>→ <a href="https://www.youtube.com/watch?v=LLEQCChC72Y" target="_blank" rel="noopener">Finje - S/T (2024)</a></li>
-                        <li>→ <a href="https://machado.bandcamp.com/album/scritti-politici-dei-miei-ventanni" target="_blank" rel="noopener">Raposa Branca - Scritti Politici Dei Miei Vent'Anni (2024)</a></li>
-                        <li>→ <a href="https://www.youtube.com/watch?v=4U9AVAl1rAs" target="_blank" rel="noopener">Finje - II (2023)</a></li>
-                        <li>→ <a href="https://www.youtube.com/watch?v=iaeJURk7MB4" target="_blank" rel="noopener">Roncos (2023 - ao vivo no KOT)</a></li>
-                        <li>→ <a href="https://www.youtube.com/watch?v=dnu9JjLT4Fo" target="_blank" rel="noopener">Raposa Branca - A Voz Vem Depois (2023)</a></li>
-                        <li>→ <a href="https://www.youtube.com/watch?v=Ey_-yCTORUg" target="_blank" rel="noopener">Roncos - Se Alguém Souber, Eram Os Vizinhos (2023)</a></li>
-                        <li>→ <a href="https://www.youtube.com/watch?v=i9ZEhSxm-PE" target="_blank" rel="noopener">Finje - I (2023)</a></li>
-                        <li>→ <a href="https://www.youtube.com/watch?v=zO61Wcba2Go" target="_blank" rel="noopener">Raposa Branca - Improv Pra Árvore (2022)</a></li>
-                    </ul>
-                </details>
-                <details class="work-item">
-                    <summary><h3>Gigs</h3></summary>
-                    <ul>
-                        <li>→ Slumlord (Quartet, electric guitar) @ Musicbox, Lisboa</li>
-                        <li>→ Raposa Branca (Solo, electric guitar, 12-string acoustic guitar and voice) @ Desterro, Lisboa</li>
-                        <li>→ Roncos (Duo, acoustic guitar) @ Armazém 5, Porto</li>
-                        <li>→ Roncos (Solo, 12-string acoustic guitar, prepared classical guitar and Bulgarian harp) @ Mindelo Fest, Mindelo</li>
-                        <li>→ Roncos (Solo, prepared electro-acoustic guitar) @ KOT, Coina</li>
-                        <li>→ Lodos (Quartet, electric guitar) @ Interpress, Lisboa</li>
-                        <li>→ Finje (Trio, electric bass) @ Tundra, Ginjal</li>
-                        <li>→ Finje (Quartet, electric bass) @ Disgraça, Lisboa</li>
-                        <li>→ Finje (Quartet, electric bass) @ ADAO, Barreiro</li>
-                        <li>→ Finje (Quartet, electric guitar) @ Sala Lisa, Lisboa</li>
-                        <li>→ Finje (Quartet, electric guitar) @ ZDB, Lisboa</li>
-                        <li>→ Finje (Trio, bass) @ Damas, Lisboa</li>
-                    </ul>
-                </details>
-            </div>
-
             <!-- WRITER SECTION -->
             <div class="section-content" id="writer">
                 <h2 class="section-header">Writer, Reporter & Editor</h2>
@@ -522,6 +511,76 @@
                         <li>→ <strong>Circe</strong> — Literary magazine, <em>available upon request</em>, 2025</li>
                         <li>→ <strong>Que Rosa Dói</strong> — Zine, <em>available upon request</em>, 2024</li>
                         <li>→ <strong>Queres Viver?</strong> — Manifesto, <em>available upon request</em>, 2021</li>
+                    </ul>
+                </details>
+            </div>
+
+            <!-- TEACHER SECTION -->
+            <div class="section-content" id="teacher">
+                <h2 class="section-header">Teacher</h2>
+                <hr class="section-rule">
+                <details class="work-item" open>
+                    <summary><h3>English & PLNM Teacher · Director de Turma · Colégio Miramar · December 2025 – present</h3></summary>
+                    <ul>
+                        <li>→ Teaching English to eight classes across 7th and 11th grade — three and five classes respectively — with 20 to 30 students per class, spanning a broad range of ages, abilities, and learning profiles.</li>
+                        <li>→ Curriculum lead for the 11th grade cohort: sole responsibility for the design, sequencing, and delivery of the full English syllabus for five exam-year classes, ensuring coherence across the year group.</li>
+                        <li>→ Teaching Portuguese as a Non-Native Language (PLNM — Português Língua Não Materna) alongside English, working across different proficiency levels and adapting materials to the specific linguistic and cultural backgrounds of individual learners.</li>
+                        <li>→ Director de Turma (Form Tutor): primary institutional point of contact between the school and families; responsible for the holistic oversight of a class group's academic progress, attendance, and welfare; coordinating across subject teachers, year leadership, and specialist support staff; and managing the sustained pastoral and administrative demands that arise at the intersection of the classroom and the home.</li>
+                    </ul>
+                </details>
+                <details class="work-item">
+                    <summary><h3>Teacher & Administrative Assistant · Helen Doron Torres Vedras · September 2024 – December 2025</h3></summary>
+                    <ul>
+                        <li>→ Delivering English instruction to children, pre-adolescents, and teenagers using the Helen Doron proprietary methodology, with particular attention to immersive, play-based learning in younger groups, and one-to-one private tuition for adult learners.</li>
+                        <li>→ Administrative and compliance responsibilities: management of CRM platforms (HubSpot, Salesforce); preparation and maintenance of Dossiers Técnico-Pedagógicos in full compliance with DGERT certification standards; and oversight of health, safety, and facilities documentation including insurance files, hygiene and safety records, and fire-safety equipment compliance.</li>
+                        <li>→ Completed the Helen Doron Teacher Training Course (TTC), a specialised certification focused on fun, creative, and immersive approaches to language learning for young learners.</li>
+                    </ul>
+                </details>
+                <details class="work-item">
+                    <summary><h3>English Teacher · Escola Agrícola Fernando Barros Leal · January 2025 – September 2025</h3></summary>
+                    <ul>
+                        <li>→ Taught English to over 100 adolescents and young adults enrolled in vocational (cursos profissionais) and CEF programmes, navigating the distinct pedagogical demands of qualification-oriented secondary education.</li>
+                        <li>→ Worked extensively with learners presenting significant learning difficulties and/or complex behavioural needs, developing differentiated approaches and maintaining productive classroom environments under sustained pressure.</li>
+                    </ul>
+                </details>
+            </div>
+
+            <!-- MUSICIAN SECTION -->
+            <div class="section-content" id="musician">
+                <h2 class="section-header">Musician</h2>
+                <hr class="section-rule">
+                <details class="work-item" open>
+                    <summary><h3>Projects</h3></summary>
+                    <p>Played guitar in the recordings below, ranging from experimental folk (Raposa Branca, Roncos) to black metal (Fórnea) and noise-rock (Finje). Click below to listen.</p>
+                    <ul>
+                        <li>→ <a href="https://www.youtube.com/watch?v=zz2jqBCUJZE" target="_blank" rel="noopener">Fórnea - Santuário de Endovélico (2024)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=ZiKX2p4IUz0" target="_blank" rel="noopener">Fórnea - Obscura Primal (2024)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=B1BTrPG6ke8" target="_blank" rel="noopener">Roncos - Viola para Fins de Ascensão (2024)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=LLEQCChC72Y" target="_blank" rel="noopener">Finje - S/T (2024)</a></li>
+                        <li>→ <a href="https://machado.bandcamp.com/album/scritti-politici-dei-miei-ventanni" target="_blank" rel="noopener">Raposa Branca - Scritti Politici Dei Miei Vent'Anni (2024)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=4U9AVAl1rAs" target="_blank" rel="noopener">Finje - II (2023)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=iaeJURk7MB4" target="_blank" rel="noopener">Roncos (2023 - ao vivo no KOT)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=dnu9JjLT4Fo" target="_blank" rel="noopener">Raposa Branca - A Voz Vem Depois (2023)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=Ey_-yCTORUg" target="_blank" rel="noopener">Roncos - Se Alguém Souber, Eram Os Vizinhos (2023)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=i9ZEhSxm-PE" target="_blank" rel="noopener">Finje - I (2023)</a></li>
+                        <li>→ <a href="https://www.youtube.com/watch?v=zO61Wcba2Go" target="_blank" rel="noopener">Raposa Branca - Improv Pra Árvore (2022)</a></li>
+                    </ul>
+                </details>
+                <details class="work-item">
+                    <summary><h3>Gigs</h3></summary>
+                    <ul>
+                        <li>→ Slumlord (Quartet, electric guitar) @ Musicbox, Lisboa</li>
+                        <li>→ Raposa Branca (Solo, electric guitar, 12-string acoustic guitar and voice) @ Desterro, Lisboa</li>
+                        <li>→ Roncos (Duo, acoustic guitar) @ Armazém 5, Porto</li>
+                        <li>→ Roncos (Solo, 12-string acoustic guitar, prepared classical guitar and Bulgarian harp) @ Mindelo Fest, Mindelo</li>
+                        <li>→ Roncos (Solo, prepared electro-acoustic guitar) @ KOT, Coina</li>
+                        <li>→ Lodos (Quartet, electric guitar) @ Interpress, Lisboa</li>
+                        <li>→ Finje (Trio, electric bass) @ Tundra, Ginjal</li>
+                        <li>→ Finje (Quartet, electric bass) @ Disgraça, Lisboa</li>
+                        <li>→ Finje (Quartet, electric bass) @ ADAO, Barreiro</li>
+                        <li>→ Finje (Quartet, electric guitar) @ Sala Lisa, Lisboa</li>
+                        <li>→ Finje (Quartet, electric guitar) @ ZDB, Lisboa</li>
+                        <li>→ Finje (Trio, bass) @ Damas, Lisboa</li>
                     </ul>
                 </details>
             </div>
@@ -573,7 +632,7 @@
         </main>
 
         <footer>
-            © Guilherme de G. F. Machado · Lisbon · 2026
+            © Guilherme de G. F. Machado · Lisbon · 2026 · Last updated June 2026
         </footer>
     </div>
 
