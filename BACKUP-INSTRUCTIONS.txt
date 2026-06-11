@@ -9,9 +9,10 @@ WHAT'S IN THIS BACKUP
   index.html         — Main portfolio page
   translation.html   — Standalone translation services page
   favicon.svg        — Browser tab icon (letter G)
+  fonts/             — Self-hosted Lora font files (woff2)
 
 That's the entire site. No build tools, no dependencies,
-no databases. Just two HTML files and a favicon.
+no databases. Just two HTML files, a favicon, and four font files.
 
 
 HOW TO VIEW LOCALLY
