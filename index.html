@@ -106,6 +106,40 @@
             color: var(--text);
         }
 
+        #site-header .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1.4rem;
+        }
+
+        .intro-cell {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.9rem 1rem;
+            text-decoration: none;
+            text-align: left;
+            transition: border-color 0.2s;
+        }
+
+        .intro-cell:hover { border-color: var(--ink); }
+
+        .intro-cell .role {
+            display: block;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--ink);
+            margin-bottom: 0.3rem;
+        }
+
+        .intro-cell .role-desc {
+            display: block;
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--muted);
+        }
+
         #site-header .tagline a {
             color: var(--muted);
             text-decoration: none;
@@ -412,7 +446,25 @@
         <header id="site-header">
             <h1><a href="#">Guilherme de G. F. Machado</a></h1>
             <div class="tagline">Open to translation, writing commissions, and collaborations · <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></div>
-            <p class="intro">Translator, writer, teacher, and musician based in Lisbon. I work between Portuguese and English: translating for cultural institutions and festivals, writing criticism for the national press and QV, teaching English and PLNM, and playing guitar in rooms of varying acoustics.</p>
+            <p class="intro">Based in Lisbon. I work between Portuguese and English.</p>
+            <div class="intro-grid">
+                <a class="intro-cell" href="#translator">
+                    <span class="role">Translator</span>
+                    <span class="role-desc">For cultural institutions, festivals, film, and academia.</span>
+                </a>
+                <a class="intro-cell" href="#writer">
+                    <span class="role">Writer</span>
+                    <span class="role-desc">Criticism and event coverage in the national press and QV.</span>
+                </a>
+                <a class="intro-cell" href="#teacher">
+                    <span class="role">Teacher</span>
+                    <span class="role-desc">English and PLNM at Colégio Miramar.</span>
+                </a>
+                <a class="intro-cell" href="#musician">
+                    <span class="role">Musician</span>
+                    <span class="role-desc">Guitar, from experimental folk to noise-rock.</span>
+                </a>
+            </div>
         </header>
 
         <nav id="tab-nav">
@@ -642,7 +694,7 @@
         });
 
         // Tab nav smooth scroll
-        document.querySelectorAll('.tab-link').forEach(link => {
+        document.querySelectorAll('.tab-link, .intro-cell').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
