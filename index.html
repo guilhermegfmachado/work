@@ -393,16 +393,17 @@
         }
 
         /* ── PRINT ── */
+        /* Collapsed <details> are expanded by JS on beforeprint — CSS alone
+           cannot reveal them, since browsers hide the content via UA styles. */
         @media print {
             #tab-nav { display: none; }
-            details[open] > summary h3::after,
             details > summary h3::after { display: none; }
-            details:not([open]) > * { display: block; }
-            details:not([open]) { display: block; }
-            .section-content { padding-top: 2rem; break-inside: avoid; }
+            details > summary { cursor: auto; }
+            .section-content { padding-top: 2rem; }
             .work-item { break-inside: avoid; }
-            body { font-size: 11pt; }
+            body { font-size: 11pt; opacity: 1 !important; }
             #site-header { padding-top: 1rem; }
+            a { color: var(--ink) !important; }
         }
     </style>
 </head>
@@ -668,6 +669,38 @@
         }, { rootMargin: '-30% 0px -60% 0px' });
 
         sections.forEach(section => observer.observe(section));
+
+        // Expand every collapsed section for printing, then restore.
+        // CSS can't do this: browsers hide closed <details> content via UA styles.
+        // Guarded against re-entry: browsers may fire both beforeprint and the
+        // matchMedia change, and a second capture would lose the original state.
+        let expandedForPrint = null;
+
+        function expandForPrint() {
+            if (expandedForPrint) return;
+            expandedForPrint = Array.from(document.querySelectorAll('details:not([open])'));
+            expandedForPrint.forEach(d => d.open = true);
+        }
+
+        function restoreAfterPrint() {
+            if (!expandedForPrint) return;
+            expandedForPrint.forEach(d => d.open = false);
+            expandedForPrint = null;
+        }
+
+        window.addEventListener('beforeprint', expandForPrint);
+        window.addEventListener('afterprint', restoreAfterPrint);
+
+        // Safari and some older browsers fire only the media query change
+        if (window.matchMedia) {
+            const printQuery = window.matchMedia('print');
+            const onChange = e => e.matches ? expandForPrint() : restoreAfterPrint();
+            if (printQuery.addEventListener) {
+                printQuery.addEventListener('change', onChange);
+            } else if (printQuery.addListener) {
+                printQuery.addListener(onChange);
+            }
+        }
     </script>
 </body>
 </html>
