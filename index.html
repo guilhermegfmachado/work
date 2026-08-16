@@ -98,29 +98,17 @@
             margin-top: 0.4rem;
         }
 
-        /* About closes the identity block: name, availability, then what I do.
-           Left-aligned even on mobile, where the header above it is centred. */
-        #about {
-            margin-top: 2.2rem;
-            text-align: left;
-        }
-
-        .about-header {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--ink);
-            margin-bottom: 0.6rem;
-            line-height: 1.2;
-        }
-
-        #about .section-rule { margin-bottom: 1.2rem; }
-
         .intro {
             max-width: 620px;
             font-size: 17px;
             line-height: 1.8;
             color: var(--text);
         }
+
+        /* About holds a single paragraph, so it doesn't need the generous
+           rhythm the dense work sections are tuned for. */
+        #about .section-rule { margin-bottom: 1.5rem; }
+        #about { margin-bottom: 0; }
 
         #site-header .tagline a {
             color: var(--muted);
@@ -461,12 +449,6 @@
         <header id="site-header">
             <h1><a href="#">Guilherme de G. F. Machado</a></h1>
             <div class="tagline">Open to translation, writing commissions, and collaborations · <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></div>
-
-            <div id="about">
-                <h2 class="about-header">About</h2>
-                <hr class="section-rule">
-                <p class="intro">Translator, writer, teacher, and musician based in Lisbon. I work between Portuguese and English: translating for cultural institutions and festivals, writing poetic coverage of events for the national press and QV, teaching English and PLNM, and playing guitar in rooms of varying acoustics.</p>
-            </div>
         </header>
 
         <nav id="tab-nav">
@@ -481,6 +463,13 @@
         </nav>
 
         <main>
+            <!-- ABOUT SECTION -->
+            <div class="section-content" id="about">
+                <h2 class="section-header">About</h2>
+                <hr class="section-rule">
+                <p class="intro">Translator, writer, teacher, and musician based in Lisbon. I work between Portuguese and English: translating for cultural institutions and festivals, writing poetic coverage of events for the national press and QV, teaching English and PLNM, and playing guitar in rooms of varying acoustics.</p>
+            </div>
+
             <!-- TRANSLATOR SECTION -->
             <div class="section-content" id="translator">
                 <h2 class="section-header">Translator</h2>
