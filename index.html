@@ -98,17 +98,29 @@
             margin-top: 0.4rem;
         }
 
+        /* About closes the identity block: name, availability, then what I do.
+           Left-aligned even on mobile, where the header above it is centred. */
+        #about {
+            margin-top: 2.2rem;
+            text-align: left;
+        }
+
+        .about-header {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        #about .section-rule { margin-bottom: 1.2rem; }
+
         .intro {
             max-width: 620px;
             font-size: 17px;
             line-height: 1.8;
             color: var(--text);
         }
-
-        /* About holds a single paragraph, so it doesn't need the generous
-           rhythm the dense work sections are tuned for. */
-        #about .section-rule { margin-bottom: 1.5rem; }
-        #about { margin-bottom: 0; }
 
         #site-header .tagline a {
             color: var(--muted);
@@ -358,6 +370,38 @@
             color: var(--ink);
         }
 
+        /* ── BACK TO TOP ── */
+        #to-top {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        #to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #to-top:hover {
+            color: var(--ink);
+            border-color: var(--ink);
+        }
+
         /* ── FOOTER ── */
         footer {
             max-width: 900px;
@@ -400,7 +444,7 @@
         /* Collapsed <details> are expanded by JS on beforeprint — CSS alone
            cannot reveal them, since browsers hide the content via UA styles. */
         @media print {
-            #tab-nav { display: none; }
+            #tab-nav, #to-top { display: none; }
             details > summary h3::after { display: none; }
             details > summary { cursor: auto; }
             .section-content { padding-top: 2rem; }
@@ -417,6 +461,12 @@
         <header id="site-header">
             <h1><a href="#">Guilherme de G. F. Machado</a></h1>
             <div class="tagline">Open to translation, writing commissions, and collaborations · <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></div>
+
+            <div id="about">
+                <h2 class="about-header">About</h2>
+                <hr class="section-rule">
+                <p class="intro">Translator, writer, teacher, and musician based in Lisbon. I work between Portuguese and English: translating for cultural institutions and festivals, writing poetic coverage of events for the national press and QV, teaching English and PLNM, and playing guitar in rooms of varying acoustics.</p>
+            </div>
         </header>
 
         <nav id="tab-nav">
@@ -431,13 +481,6 @@
         </nav>
 
         <main>
-            <!-- ABOUT SECTION -->
-            <div class="section-content" id="about">
-                <h2 class="section-header">About</h2>
-                <hr class="section-rule">
-                <p class="intro">Translator, writer, teacher, and musician based in Lisbon. I work between Portuguese and English: translating for cultural institutions and festivals, writing poetic coverage of events for the national press and QV, teaching English and PLNM, and playing guitar in rooms of varying acoustics.</p>
-            </div>
-
             <!-- TRANSLATOR SECTION -->
             <div class="section-content" id="translator">
                 <h2 class="section-header">Translator</h2>
@@ -643,6 +686,8 @@
         <footer>
             © Guilherme de G. F. Machado · Lisbon · 2026 · Last updated June 2026
         </footer>
+
+        <a id="to-top" href="#" aria-label="Back to top">↑</a>
     </div>
 
     <script>
@@ -677,6 +722,22 @@
         }, { rootMargin: '-30% 0px -60% 0px' });
 
         sections.forEach(section => observer.observe(section));
+
+        // Back to top — appears once the header has scrolled away
+        const toTop = document.getElementById('to-top');
+
+        toTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        function updateToTop() {
+            const header = document.getElementById('site-header');
+            toTop.classList.toggle('visible', window.scrollY > header.offsetHeight);
+        }
+
+        window.addEventListener('scroll', updateToTop, { passive: true });
+        updateToTop();
 
         // Expand every collapsed section for printing, then restore.
         // CSS can't do this: browsers hide closed <details> content via UA styles.
