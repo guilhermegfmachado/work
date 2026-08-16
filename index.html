@@ -98,11 +98,10 @@
             margin-top: 0.4rem;
         }
 
-        #site-header .intro {
+        .intro {
             max-width: 620px;
-            margin-top: 1.2rem;
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 17px;
+            line-height: 1.8;
             color: var(--text);
         }
 
@@ -373,10 +372,6 @@
                 padding: 2.5rem 1.5rem 1.5rem;
             }
 
-            /* Centred name and tagline, but left-align the intro —
-               centred prose is hard to read over several lines. */
-            #site-header .intro { text-align: left; }
-
             #site-header h1 { font-size: 1.5rem; }
 
             .section-header { font-size: 1.5rem; }
@@ -417,11 +412,11 @@
         <header id="site-header">
             <h1><a href="#">Guilherme de G. F. Machado</a></h1>
             <div class="tagline">Open to translation, writing commissions, and collaborations · <a href="mailto:guilhermegfmachado@gmail.com">guilhermegfmachado@gmail.com</a></div>
-            <p class="intro">Translator, writer, teacher, and musician based in Lisbon. I work between Portuguese and English: translating for cultural institutions and festivals, writing poetic coverage of events for the national press and QV, teaching English and PLNM, and playing guitar in rooms of varying acoustics.</p>
         </header>
 
         <nav id="tab-nav">
             <div id="tab-nav-inner">
+                <a class="tab-link" href="#about">About</a>
                 <a class="tab-link" href="#translator">Translator</a>
                 <a class="tab-link" href="#writer">Writer</a>
                 <a class="tab-link" href="#teacher">Teacher</a>
@@ -432,6 +427,13 @@
         </nav>
 
         <main>
+            <!-- ABOUT SECTION -->
+            <div class="section-content" id="about">
+                <h2 class="section-header">About</h2>
+                <hr class="section-rule">
+                <p class="intro">Translator, writer, teacher, and musician based in Lisbon. I work between Portuguese and English: translating for cultural institutions and festivals, writing poetic coverage of events for the national press and QV, teaching English and PLNM, and playing guitar in rooms of varying acoustics.</p>
+            </div>
+
             <!-- TRANSLATOR SECTION -->
             <div class="section-content" id="translator">
                 <h2 class="section-header">Translator</h2>
