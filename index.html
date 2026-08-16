@@ -105,6 +105,11 @@
             color: var(--text);
         }
 
+        /* About holds a single paragraph, so it doesn't need the generous
+           rhythm the dense work sections are tuned for. */
+        #about .section-rule { margin-bottom: 1.5rem; }
+        #about { margin-bottom: 0; }
+
         #site-header .tagline a {
             color: var(--muted);
             text-decoration: none;
@@ -378,7 +383,7 @@
 
             .work-item h3 { font-size: 16px; }
 
-            .work-item li, .work-item p { font-size: 16px; }
+            .work-item li, .work-item p, .intro { font-size: 16px; }
 
             main { padding: 0 1.2rem 3rem; }
 
