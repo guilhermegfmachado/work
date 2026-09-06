@@ -277,44 +277,14 @@
         }
 
         /* ── PROJECT CARDS ── */
-        .project-card {
-            background: var(--bg-alt);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
+        .tool-url { margin-top: -0.4rem; }
 
-        .project-card h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--ink);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-url {
-            margin-bottom: 0.8rem;
-        }
-
-        .project-url a {
+        .tool-url a {
             color: var(--muted);
-            text-decoration: none;
             font-size: 0.85rem;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.2s;
         }
 
-        .project-url a:hover {
-            color: var(--ink);
-            border-bottom-color: var(--ink);
-        }
-
-        .project-url a::before { content: "→ "; color: var(--light); }
-
-        .project-card p {
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: 0;
-        }
+        .tool-url a::before { content: "→ "; color: var(--light); }
 
         /* ── TRANSLATOR LINK ── */
         .translator-services-link {
@@ -425,7 +395,6 @@
 
             .tab-link { padding: 0.8rem 1rem; font-size: 0.8rem; }
 
-            .project-card { padding: 1.2rem; }
         }
 
         /* ── PRINT ── */
@@ -457,7 +426,6 @@
                 <a class="tab-link" href="#writer">Writer</a>
                 <a class="tab-link" href="#teacher">Teacher</a>
                 <a class="tab-link" href="#musician">Musician</a>
-                <a class="tab-link" href="#projects">Projects</a>
                 <a class="tab-link" href="#building">Building</a>
             </div>
         </nav>
@@ -569,6 +537,16 @@
                         <li>→ <strong>Queres Viver?</strong> — Manifesto, <em>available upon request</em>, 2021</li>
                     </ul>
                 </details>
+                <details class="work-item">
+                    <summary><h3>Aleph (א) · Universal Literary Catalogue · 2025 – present</h3></summary>
+                    <p>A library of public-domain texts I built for my own reading — Greek, Latin, Sanskrit, Japanese, Chinese and other traditions — with a glossary of 330+ untranslatable terms across 38 languages.</p>
+                    <p class="tool-url"><a href="https://guilhermegfmachado.github.io/aleph/index.html" target="_blank" rel="noopener">guilhermegfmachado.github.io/aleph/index.html</a></p>
+                </details>
+                <details class="work-item">
+                    <summary><h3>活字 (Huozi) · World Press Reader · 2026 – present</h3></summary>
+                    <p>A reader I built to follow the world press in one place, pulling from 65 journalism outlets in 10 languages.</p>
+                    <p class="tool-url"><a href="https://guilhermegfmachado.github.io/huozi" target="_blank" rel="noopener">guilhermegfmachado.github.io/huozi</a></p>
+                </details>
             </div>
 
             <!-- TEACHER SECTION -->
@@ -602,6 +580,11 @@
                         <li>→ <strong>Cultural Glasses</strong> — Colégio Miramar, 11 March 2026. Three-hour Erasmus+ workshop held within the school's Festival das Culturas.</li>
                         <li>→ <strong>Helen Doron Teacher Training Course (TTC)</strong> — specialised certification focused on fun, creative, and immersive approaches to language learning for young learners.</li>
                     </ul>
+                </details>
+                <details class="work-item">
+                    <summary><h3>Farol · Inclusion &amp; AI in the Classroom · 2026</h3></summary>
+                    <p>A pocket manual on inclusive practice and AI in the classroom, which I built for the Erasmus+ course above. Covers six learning profiles — ADHD, dyslexia, dyspraxia, autism, giftedness, and Portuguese as an additional language — with classroom observations, immediate interventions, and AI-assisted strategies for each, in 23 EU languages.</p>
+                    <p class="tool-url"><a href="https://guilhermegfmachado.github.io/farol/en/" target="_blank" rel="noopener">guilhermegfmachado.github.io/farol/en</a></p>
                 </details>
                 <details class="work-item">
                     <summary><h3>Teacher & Administrative Assistant · Helen Doron Torres Vedras · September 2024 – December 2025</h3></summary>
@@ -657,32 +640,11 @@
                         <li>→ Finje (Trio, bass) @ Damas, Lisboa</li>
                     </ul>
                 </details>
-            </div>
-
-            <!-- PROJECTS SECTION -->
-            <div class="section-content" id="projects">
-                <h2 class="section-header">Projects</h2>
-                <hr class="section-rule">
-                <div class="project-card">
-                    <h3>活字 (Huozi) — World Press Aggregator · 2026 – present</h3>
-                    <p class="project-url"><a href="https://guilhermegfmachado.github.io/huozi" target="_blank" rel="noopener">guilhermegfmachado.github.io/huozi</a></p>
-                    <p>A news and markets platform pulling from 65 quality journalism outlets in 10 languages. Combines RSS aggregation with portfolio tracking, watchlists, a stock screener, and a curated investment sources directory. Features keyboard navigation, translation, dark mode, and multiple sorting and filtering options.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Farol — Inclusion & AI in the Classroom · 2026 – present</h3>
-                    <p class="project-url"><a href="https://guilhermegfmachado.github.io/farol/en/" target="_blank" rel="noopener">guilhermegfmachado.github.io/farol</a></p>
-                    <p>A multilingual pocket manual for teachers on inclusive practice and AI in the classroom, available in 23 EU languages. Covers six learning profiles — ADHD, dyslexia, dyspraxia, autism, giftedness, and Portuguese as an additional language — with classroom observations, immediate interventions, and AI-assisted strategies for each.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Svara — Encyclopedia of Musical Scales · 2026 – present</h3>
-                    <p class="project-url"><a href="https://guilhermegfmachado.github.io/svara/" target="_blank" rel="noopener">guilhermegfmachado.github.io/svara</a></p>
-                    <p>An interactive encyclopedia of 41 musical scales from Western, Indian, Middle Eastern, East Asian, and African traditions — with tunings, rhythms, practice tools, scale comparison, and a world map view. Covers everything from Hindustani ragas and Javanese gamelan to maqam and Ethiopian pentatonic systems.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Aleph (א) — Universal Literary Catalogue · 2025 – present</h3>
-                    <p class="project-url"><a href="https://guilhermegfmachado.github.io/aleph/index.html" target="_blank" rel="noopener">guilhermegfmachado.github.io/aleph</a></p>
-                    <p>A digital library indexing 50+ public domain texts from Greek, Latin, Sanskrit, Japanese, Chinese, and other traditions. Includes a glossary of 330+ untranslatable terms across 38 languages and a reference library of 479 sources with network visualisation.</p>
-                </div>
+                <details class="work-item">
+                    <summary><h3>Svara · Encyclopedia of Musical Scales · 2026</h3></summary>
+                    <p>An encyclopedia of musical scales I built for my own practice — 41 scales from Western, Indian, Middle Eastern, East Asian, and African traditions, with tunings, rhythms, practice tools, and a world map view.</p>
+                    <p class="tool-url"><a href="https://guilhermegfmachado.github.io/svara/" target="_blank" rel="noopener">guilhermegfmachado.github.io/svara</a></p>
+                </details>
             </div>
 
             <!-- BUILDING SECTION -->
