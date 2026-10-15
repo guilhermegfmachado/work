@@ -9,17 +9,17 @@ WHAT'S IN THIS BACKUP
   index.html         — Main portfolio page
   translation.html   — Standalone translation services page
   favicon.svg        — Browser tab icon (letter G)
-  fonts/             — Self-hosted Lora font files (woff2)
+  fonts/             — Self-hosted Source Serif 4 + Inter files (woff2)
 
 That's the entire site. No build tools, no dependencies,
-no databases. Just two HTML files, a favicon, and four font files.
+no databases. Just two HTML files, a favicon and the font files.
 
 
 HOW TO VIEW LOCALLY
 -------------------
 Open index.html in any browser. That's it.
 Double-click the file, or drag it into a browser window.
-Everything works offline. The Lora font is self-hosted in
+Everything works offline. The fonts are self-hosted in
 the fonts/ folder, so nothing is fetched from the internet —
 keep that folder next to the HTML files or the type will
 fall back to Georgia.
@@ -103,7 +103,7 @@ If you lose the GitHub repo or want to start fresh:
 3. Enable GitHub Pages (step 4 above)
 4. Re-add custom domain if you had one (steps above)
 
-That's it. Two HTML files, an icon and four font files. No build
+That's it. Two HTML files, an icon and the font files. No build
 step, no install, no server.
 
 

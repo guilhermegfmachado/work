@@ -3,7 +3,7 @@
 Personal site of Guilherme de Góis Machado — https://guilhermegfmachado.github.io/work/
 
 Static, no build step, no dependencies. `index.html` and `translation.html` each
-carry their own CSS and JS inline; `fonts/` holds the self-hosted Lora files;
+carry their own CSS and JS inline; `fonts/` holds the self-hosted Source Serif 4 and Inter files;
 `favicon.svg` is the tab icon. Edit the HTML directly and refresh.
 
 ## Every visit
@@ -53,6 +53,10 @@ entries were found and deleted; do not create more.
   serve, not in a Projects section of their own — a standalone section implied a
   professional pillar they aren't. Each description says plainly that it was
   built for his own teaching, practice or reading.
+- **Type.** Source Serif 4 for headings (h1, section headers, work-item h3),
+  Inter for body and tab links, both self-hosted and variable. Body 16px/1.75.
+  The parenthetical after an article title is wrapped in `<span class="meta">`
+  so the facts sit back from the description.
 - **External links** all carry `target="_blank" rel="noopener"`.
 
 ## Structure
