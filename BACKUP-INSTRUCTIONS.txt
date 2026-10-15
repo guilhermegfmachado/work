@@ -9,7 +9,7 @@ WHAT'S IN THIS BACKUP
   index.html         — Main portfolio page
   translation.html   — Standalone translation services page
   favicon.svg        — Browser tab icon (letter G)
-  fonts/             — Self-hosted Source Serif 4 + Inter files (woff2)
+  fonts/             — Self-hosted Tinos font files (woff2)
 
 That's the entire site. No build tools, no dependencies,
 no databases. Just two HTML files, a favicon and the font files.
