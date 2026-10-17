@@ -3,7 +3,7 @@
 Personal site of Guilherme de Góis Machado — https://guilhermegfmachado.github.io/work/
 
 Static, no build step, no dependencies. `index.html` and `translation.html` each
-carry their own CSS and JS inline; `fonts/` holds the self-hosted Tinos files;
+carry their own CSS and JS inline; `fonts/` holds the self-hosted Lora files;
 `favicon.svg` is the tab icon. Edit the HTML directly and refresh.
 
 ## Every visit
@@ -53,13 +53,11 @@ entries were found and deleted; do not create more.
   serve, not in a Projects section of their own — a standalone section implied a
   professional pillar they aren't. Each description says plainly that it was
   built for his own teaching, practice or reading.
-- **Type.** Tinos throughout, self-hosted — metrically identical to Times New
-  Roman, with Times as the fallback. Body 17.5px/1.7 (Times runs small). Serious
-  and document-like is the brief: no sans anywhere, and no display or "literary"
-  serifs — Lora, Source Serif 4, Inter, EB Garamond, Spectral and Libre
-  Baskerville were all tried and rejected. The parenthetical after an article
-  title is wrapped in `<span class="meta">` so the facts sit back from the
-  description.
+- **Type.** Lora throughout, self-hosted. Body 17px/1.7, section headings
+  1.8rem. This is settled: Source Serif 4, Inter, EB Garamond, Spectral, Libre
+  Baskerville and Tinos were each tried and rejected, and the site was returned
+  to Lora deliberately. Don't propose a font change unless asked for one.
+
 - **External links** all carry `target="_blank" rel="noopener"`.
 
 ## Structure

@@ -12,71 +12,40 @@
     <meta name="twitter:card" content="summary">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
-        /* Tinos, self-hosted: metrically identical to Times New Roman */
+        /* Lora, self-hosted (variable font, weights 400-700) */
         @font-face {
-            font-family: 'Tinos';
-            font-style: italic;
-            font-weight: 400;
+            font-family: 'Lora';
+            font-style: normal;
+            font-weight: 400 700;
             font-display: swap;
-            src: url(fonts/tinos-latin-ext-italic-400.woff2) format('woff2');
-            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
-        }
-        @font-face {
-            font-family: 'Tinos';
-            font-style: italic;
-            font-weight: 400;
-            font-display: swap;
-            src: url(fonts/tinos-latin-italic-400.woff2) format('woff2');
+            src: url(fonts/lora-latin.woff2) format('woff2');
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
         @font-face {
-            font-family: 'Tinos';
-            font-style: italic;
-            font-weight: 700;
-            font-display: swap;
-            src: url(fonts/tinos-latin-ext-italic-700.woff2) format('woff2');
-            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
-        }
-        @font-face {
-            font-family: 'Tinos';
-            font-style: italic;
-            font-weight: 700;
-            font-display: swap;
-            src: url(fonts/tinos-latin-italic-700.woff2) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-        @font-face {
-            font-family: 'Tinos';
+            font-family: 'Lora';
             font-style: normal;
+            font-weight: 400 700;
+            font-display: swap;
+            src: url(fonts/lora-latin-ext.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'Lora';
+            font-style: italic;
             font-weight: 400;
             font-display: swap;
-            src: url(fonts/tinos-latin-ext-normal-400.woff2) format('woff2');
-            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            src: url(fonts/lora-italic-latin.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
         @font-face {
-            font-family: 'Tinos';
-            font-style: normal;
+            font-family: 'Lora';
+            font-style: italic;
             font-weight: 400;
             font-display: swap;
-            src: url(fonts/tinos-latin-normal-400.woff2) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            src: url(fonts/lora-italic-latin-ext.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
         }
-        @font-face {
-            font-family: 'Tinos';
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: url(fonts/tinos-latin-ext-normal-700.woff2) format('woff2');
-            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
-        }
-        @font-face {
-            font-family: 'Tinos';
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: url(fonts/tinos-latin-normal-700.woff2) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
+
         :root {
             --ink: #1C1C1C;
             --text: #374151;
@@ -90,9 +59,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Tinos', 'Times New Roman', Times, serif;
+            font-family: 'Lora', Georgia, 'Times New Roman', serif;
             font-weight: 400;
-            font-size: 17.5px;
+            font-size: 17px;
             line-height: 1.7;
             color: var(--text);
             background: var(--bg);
@@ -113,10 +82,7 @@
         }
 
         #site-header h1 {
-            font-family: 'Tinos', 'Times New Roman', Times, serif;
-            font-size: 2.3rem;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--ink);
         }
@@ -134,7 +100,7 @@
 
         .intro {
             max-width: 620px;
-            font-size: 17.5px;
+            font-size: 17px;
             line-height: 1.8;
             color: var(--text);
         }
@@ -181,7 +147,7 @@
         .tab-link {
             display: inline-block;
             padding: 0.9rem 1.2rem;
-            font-family: 'Tinos', 'Times New Roman', Times, serif;
+            font-family: 'Lora', Georgia, serif;
             font-size: 0.85rem;
             font-weight: 400;
             color: var(--muted);
@@ -207,14 +173,12 @@
 
         /* ── SECTIONS ── */
         .section-content {
-            padding-top: 6.5rem;
+            padding-top: 5rem;
             margin-bottom: 2rem;
         }
 
         .section-header {
-            font-family: 'Tinos', 'Times New Roman', Times, serif;
-            font-size: 2.1rem;
-            letter-spacing: -0.02em;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--ink);
             margin-bottom: 0.8rem;
@@ -237,15 +201,14 @@
         }
 
         .work-item h3 {
-            font-family: 'Tinos', 'Times New Roman', Times, serif;
-            font-size: 1.05rem;
+            font-size: 17px;
             font-weight: 700;
             color: var(--ink);
             margin-bottom: 0.8rem;
         }
 
         .work-item p {
-            font-size: 17.5px;
+            font-size: 17px;
             line-height: 1.8;
             margin-bottom: 0.8rem;
         }
@@ -261,7 +224,7 @@
         }
 
         .work-item li {
-            font-size: 17.5px;
+            font-size: 17px;
             line-height: 1.8;
             margin-bottom: 0.5rem;
         }
@@ -300,12 +263,6 @@
             margin-bottom: 0.8rem;
         }
 
-        .meta {
-            color: var(--muted);
-            font-size: 0.88em;
-            letter-spacing: 0.01em;
-        }
-
         /* ── LINKS ── */
         .work-item a {
             color: var(--text);
@@ -330,7 +287,7 @@
         /* ── TRANSLATOR LINK ── */
         .translator-services-link {
             margin-bottom: 2rem;
-            font-size: 17.5px;
+            font-size: 17px;
             line-height: 1.7;
         }
 
@@ -420,17 +377,17 @@
                 padding: 2.5rem 1.5rem 1.5rem;
             }
 
-            #site-header h1 { font-size: 1.85rem; }
+            #site-header h1 { font-size: 1.5rem; }
 
-            .section-header { font-size: 1.7rem; }
+            .section-header { font-size: 1.5rem; }
 
-            .work-item h3 { font-size: 1rem; }
+            .work-item h3 { font-size: 16px; }
 
-            .work-item li, .work-item p, .intro { font-size: 16.5px; }
+            .work-item li, .work-item p, .intro { font-size: 16px; }
 
             main { padding: 0 1.2rem 3rem; }
 
-            .section-content { padding-top: 4.5rem; }
+            .section-content { padding-top: 4rem; }
 
             #tab-nav-inner { padding: 0 1rem; }
 
@@ -545,27 +502,27 @@
                     <summary><h3>Event Coverage & Essays</h3></summary>
                     <p class="writer-intro-note">Concert writing, literary essays, and festival coverage — published in the national press and on <a href="https://queresviver.pt/" target="_blank" rel="noopener">QV</a>:</p>
                     <ul>
-                        <li>→ <strong><a href="https://www.architecturalplace.com/allarticles/scar-architecture-how-things-stand-in-present-day-bucharest" target="_blank" rel="noopener">Scar Architecture: How Things Stand in Present-Day Bucharest</a></strong> <span class="meta">(Architectural Place, September 2026)</span> · Essay on Bucharest under successive regimes, coining Scar Architecture after the Chinese literary movement that followed the Cultural Revolution, and tracing the decay of its interwar blocks to a property problem: restitution to scattered co-heirs with no cadastre to establish who owns what.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#lim-n-santos-abstractos-n-rhone-fleuve-festa" target="_blank" rel="noopener">lim_{n→Ω} Santos Abstractos(n) = ∞ ⊃ {Rhône (Fleuve), Festa Major de Gràcia 2026}</a></strong> <span class="meta">(Arles and Barcelona, August 2026)</span> · Literary essay on landscape as promise rather than fact, running from the Rhône to the Festa Major de Gràcia, engaging image, memory, and deep time.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#ultra-fiorentina-pace-6" target="_blank" rel="noopener">Ultra Fiorentina pace ኦሮማይ ትረካ ክፍል 6</a></strong> <span class="meta">(Florence, August 2026)</span> · Literary essay from Piazza Santo Spirito on patronage, falsity, and the case for reportage as poetry.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#santos-abstratos-4-rda-13-06-26" target="_blank" rel="noopener">Santos Abstratos 4: RDA</a></strong> <span class="meta">(RDA, Lisboa, June 2026)</span> · Literary essay on Santos Populares as an acupuncture of scenes, places, and qualia. Part 4.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#mistagogo-da-leveza-beverly-glenn-copeland-z" target="_blank" rel="noopener">Mistagogo da Leveza: Beverly Glenn-Copeland</a></strong> <span class="meta">(Auditório da Reitoria, NOVA, Lisboa, June 2026)</span> · Concert essay on Beverly Glenn-Copeland, presented by ZDB, engaging oral tradition, the hierarchy of angels, and lightness as apotheosis.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#santos-abstratos-3-rua-de-arroios-o-arraial-" target="_blank" rel="noopener">Santos Abstratos 3: Rua de Arroios</a></strong> <span class="meta">(Lisboa, June 2026)</span> · Literary essay on nature, urbanism, and pan-psychism during Santos Populares. Part 3.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#santos-abstratos-2-largo-da-rosa-06-06-26" target="_blank" rel="noopener">Santos Abstratos 2: Largo da Rosa</a></strong> <span class="meta">(Lisboa, June 2026)</span> · Literary essay on nightlife, hope, and infrastructure during Santos Populares. Part 2.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#santos-abstratos-1-praca-da-alegria-03-06-26" target="_blank" rel="noopener">Santos Abstratos 1: Praça da Alegria</a></strong> <span class="meta">(Lisboa, June 2026)</span> · Literary essay on communal joy and cultural exchange during Santos Populares. Part 1.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#a-idade-do-som-odd-okoddo-ogoya-nengo-zdb" target="_blank" rel="noopener">A Idade do Som: Odd Okoddo &amp; Ogoya Nengo</a></strong> <span class="meta">(ZDB, Lisboa, May 2026)</span> · Concert essay on Ogoya Nengo, Olith Ratego, and Sven Kacirek, engaging the origin of sound across Kenyan vocal tradition and Berlin minimal techno.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#antigos-coracoes-a-lua-lisbon-art-and-antiqu" target="_blank" rel="noopener">Antigos Corações; a Lua: Lisbon Art and Antiques Fair</a></strong> <span class="meta">(Cordoaria Nacional, Lisboa, May 2026)</span> · Literary essay on the LAAF 2026, engaging antiquity, opulence, and the persistence of old things.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#manifesto-do-aeviternalismo-tortoise-culturg" target="_blank" rel="noopener">Manifesto do Aeviternalismo: Tortoise</a></strong> <span class="meta">(Culturgest, Lisboa, April 2026)</span> · Concert essay on Tortoise, engaging permanence, consciousness, and post-rock minimalism as trance.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#o-oraculo-das-3-cordas-bill-orcutt-zdb" target="_blank" rel="noopener">O Oráculo das 3 Cordas: Bill Orcutt</a></strong> <span class="meta">(ZDB, Lisboa, April 2026)</span> · Concert essay tracing the American primitive guitar lineage from Fahey and Basho through to the cathartic power of the electric guitar.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#crippled-symmetries-ensemble-knm-berlin-vill" target="_blank" rel="noopener">Crippled Symmetries: Ensemble KNM Berlin</a></strong> <span class="meta">(Villa Elisabeth, Berlin, December 2025)</span> · Concert essay on Feldman's Crippled Symmetries (1983), engaging repetition, resonance, and the memory of inhabited spaces. In English.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#gallery-rose-garden" target="_blank" rel="noopener">The Gallery As A Sacred Rose Garden: Sovereign Art Prize</a></strong> <span class="meta">(Sociedade Nacional de Belas Artes, Lisboa, November 2025)</span> · Essay on the 4th edition, engaging themes of the sacred, the canonical, and the contemporary.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#caminhos-1" target="_blank" rel="noopener">Caminhos do Cinema Português</a></strong> <span class="meta">(Coimbra, 31st edition, November 2025)</span> · Multi-part coverage including an account of the world premiere of Seta by Francisco Botelho. (<a href="https://queresviver.pt/#caminhos-2-3" target="_blank" rel="noopener">Part 2 &amp; 3</a>)</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#olhares-12" target="_blank" rel="noopener">Olhares do Mediterrâneo</a></strong> <span class="meta">(Cinema S. Jorge and Cinemateca, Lisboa, 12th edition, October–November 2025)</span> · Essay on cinema as a collective form of seeing across the Mediterranean.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#a-lei-o-tempo-o-amor-e-o-doclisboa" target="_blank" rel="noopener">A Lei, o Tempo, o Amor e o Doclisboa</a></strong> <span class="meta">(Cinema S. Jorge and Culturgest, Lisboa, October 2025)</span> · Essay weaving documentary form with questions of law, time, and love.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#boca-1" target="_blank" rel="noopener">BoCA: Biennial of Contemporary Arts</a></strong> <span class="meta">(Lisboa, October 2025)</span> · Extended multi-part coverage across the full programme of this major international festival of contemporary performance, spanning theatre, dance, installation, and interdisciplinary work. (<a href="https://queresviver.pt/#boca-2-3" target="_blank" rel="noopener">Part 2 &amp; 3</a>, <a href="https://queresviver.pt/#boca-5-6" target="_blank" rel="noopener">Part 5 &amp; 6</a>)</li>
-                        <li>→ <strong><a href="https://www.publico.pt/2025/10/13/fugas/noticia/tanz-im-august-berlim-sol-2149796" target="_blank" rel="noopener">Tanz im August, Berlim ao Sol</a></strong> <span class="meta">(the national press, October 2025)</span> · Festival coverage from one of Europe’s preeminent contemporary dance festivals.</li>
-                        <li>→ <strong><a href="https://queresviver.pt/#berlim-2025" target="_blank" rel="noopener">Trip Report: Berlim</a></strong> <span class="meta">(Berlin, August 2025)</span> · Report from Tanz im August and other wanderings through the city.</li>
-                        <li>→ <strong><a href="https://www.publico.pt/2024/10/26/fugas/noticia/bemvinda-hostilidade-bulgara-2108713" target="_blank" rel="noopener">Bem-vinda Hostilidade Búlgara</a></strong> <span class="meta">(the national press, October 2024)</span> · Travel writing on Bulgaria.</li>
+                        <li>→ <strong><a href="https://www.architecturalplace.com/allarticles/scar-architecture-how-things-stand-in-present-day-bucharest" target="_blank" rel="noopener">Scar Architecture: How Things Stand in Present-Day Bucharest</a></strong> (Architectural Place, September 2026) · Essay on Bucharest under successive regimes, coining Scar Architecture after the Chinese literary movement that followed the Cultural Revolution, and tracing the decay of its interwar blocks to a property problem: restitution to scattered co-heirs with no cadastre to establish who owns what.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#lim-n-santos-abstractos-n-rhone-fleuve-festa" target="_blank" rel="noopener">lim_{n→Ω} Santos Abstractos(n) = ∞ ⊃ {Rhône (Fleuve), Festa Major de Gràcia 2026}</a></strong> (Arles and Barcelona, August 2026) · Literary essay on landscape as promise rather than fact, running from the Rhône to the Festa Major de Gràcia, engaging image, memory, and deep time.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#ultra-fiorentina-pace-6" target="_blank" rel="noopener">Ultra Fiorentina pace ኦሮማይ ትረካ ክፍል 6</a></strong> (Florence, August 2026) · Literary essay from Piazza Santo Spirito on patronage, falsity, and the case for reportage as poetry.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#santos-abstratos-4-rda-13-06-26" target="_blank" rel="noopener">Santos Abstratos 4: RDA</a></strong> (RDA, Lisboa, June 2026) · Literary essay on Santos Populares as an acupuncture of scenes, places, and qualia. Part 4.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#mistagogo-da-leveza-beverly-glenn-copeland-z" target="_blank" rel="noopener">Mistagogo da Leveza: Beverly Glenn-Copeland</a></strong> (Auditório da Reitoria, NOVA, Lisboa, June 2026) · Concert essay on Beverly Glenn-Copeland, presented by ZDB, engaging oral tradition, the hierarchy of angels, and lightness as apotheosis.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#santos-abstratos-3-rua-de-arroios-o-arraial-" target="_blank" rel="noopener">Santos Abstratos 3: Rua de Arroios</a></strong> (Lisboa, June 2026) · Literary essay on nature, urbanism, and pan-psychism during Santos Populares. Part 3.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#santos-abstratos-2-largo-da-rosa-06-06-26" target="_blank" rel="noopener">Santos Abstratos 2: Largo da Rosa</a></strong> (Lisboa, June 2026) · Literary essay on nightlife, hope, and infrastructure during Santos Populares. Part 2.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#santos-abstratos-1-praca-da-alegria-03-06-26" target="_blank" rel="noopener">Santos Abstratos 1: Praça da Alegria</a></strong> (Lisboa, June 2026) · Literary essay on communal joy and cultural exchange during Santos Populares. Part 1.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#a-idade-do-som-odd-okoddo-ogoya-nengo-zdb" target="_blank" rel="noopener">A Idade do Som: Odd Okoddo &amp; Ogoya Nengo</a></strong> (ZDB, Lisboa, May 2026) · Concert essay on Ogoya Nengo, Olith Ratego, and Sven Kacirek, engaging the origin of sound across Kenyan vocal tradition and Berlin minimal techno.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#antigos-coracoes-a-lua-lisbon-art-and-antiqu" target="_blank" rel="noopener">Antigos Corações; a Lua: Lisbon Art and Antiques Fair</a></strong> (Cordoaria Nacional, Lisboa, May 2026) · Literary essay on the LAAF 2026, engaging antiquity, opulence, and the persistence of old things.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#manifesto-do-aeviternalismo-tortoise-culturg" target="_blank" rel="noopener">Manifesto do Aeviternalismo: Tortoise</a></strong> (Culturgest, Lisboa, April 2026) · Concert essay on Tortoise, engaging permanence, consciousness, and post-rock minimalism as trance.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#o-oraculo-das-3-cordas-bill-orcutt-zdb" target="_blank" rel="noopener">O Oráculo das 3 Cordas: Bill Orcutt</a></strong> (ZDB, Lisboa, April 2026) · Concert essay tracing the American primitive guitar lineage from Fahey and Basho through to the cathartic power of the electric guitar.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#crippled-symmetries-ensemble-knm-berlin-vill" target="_blank" rel="noopener">Crippled Symmetries: Ensemble KNM Berlin</a></strong> (Villa Elisabeth, Berlin, December 2025) · Concert essay on Feldman's Crippled Symmetries (1983), engaging repetition, resonance, and the memory of inhabited spaces. In English.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#gallery-rose-garden" target="_blank" rel="noopener">The Gallery As A Sacred Rose Garden: Sovereign Art Prize</a></strong> (Sociedade Nacional de Belas Artes, Lisboa, November 2025) · Essay on the 4th edition, engaging themes of the sacred, the canonical, and the contemporary.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#caminhos-1" target="_blank" rel="noopener">Caminhos do Cinema Português</a></strong> (Coimbra, 31st edition, November 2025) · Multi-part coverage including an account of the world premiere of Seta by Francisco Botelho. (<a href="https://queresviver.pt/#caminhos-2-3" target="_blank" rel="noopener">Part 2 &amp; 3</a>)</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#olhares-12" target="_blank" rel="noopener">Olhares do Mediterrâneo</a></strong> (Cinema S. Jorge and Cinemateca, Lisboa, 12th edition, October–November 2025) · Essay on cinema as a collective form of seeing across the Mediterranean.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#a-lei-o-tempo-o-amor-e-o-doclisboa" target="_blank" rel="noopener">A Lei, o Tempo, o Amor e o Doclisboa</a></strong> (Cinema S. Jorge and Culturgest, Lisboa, October 2025) · Essay weaving documentary form with questions of law, time, and love.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#boca-1" target="_blank" rel="noopener">BoCA: Biennial of Contemporary Arts</a></strong> (Lisboa, October 2025) · Extended multi-part coverage across the full programme of this major international festival of contemporary performance, spanning theatre, dance, installation, and interdisciplinary work. (<a href="https://queresviver.pt/#boca-2-3" target="_blank" rel="noopener">Part 2 &amp; 3</a>, <a href="https://queresviver.pt/#boca-5-6" target="_blank" rel="noopener">Part 5 &amp; 6</a>)</li>
+                        <li>→ <strong><a href="https://www.publico.pt/2025/10/13/fugas/noticia/tanz-im-august-berlim-sol-2149796" target="_blank" rel="noopener">Tanz im August, Berlim ao Sol</a></strong> (the national press, October 2025) · Festival coverage from one of Europe’s preeminent contemporary dance festivals.</li>
+                        <li>→ <strong><a href="https://queresviver.pt/#berlim-2025" target="_blank" rel="noopener">Trip Report: Berlim</a></strong> (Berlin, August 2025) · Report from Tanz im August and other wanderings through the city.</li>
+                        <li>→ <strong><a href="https://www.publico.pt/2024/10/26/fugas/noticia/bemvinda-hostilidade-bulgara-2108713" target="_blank" rel="noopener">Bem-vinda Hostilidade Búlgara</a></strong> (the national press, October 2024) · Travel writing on Bulgaria.</li>
                     </ul>
                     <div class="writer-available-for">
                         <strong>Available for:</strong> event documentation · conference and festival reporting · bilingual editorial content (PT/EN) · programme and communications copy · press writing · on-site coverage
